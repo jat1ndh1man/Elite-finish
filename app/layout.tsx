@@ -26,7 +26,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Elite Finish - Masterful Surfaces",
-  description: "Premium painting and surface finishing services",
+  description: "Premium painting and surface finishing services in Geelong.",
 };
 
 export default function RootLayout({

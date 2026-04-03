@@ -36,7 +36,7 @@ export default function HomePage() {
                 </span>
               </h1>
               <p className="text-on-surface/70 text-lg md:text-xl mb-12 max-w-xl leading-relaxed font-medium">
-                Elevating Hobart&apos;s architectural landscape through precision
+                Elevating Geelong&apos;s architectural landscape through precision
                 engineering, legacy craftsmanship, and contemporary finishes.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -71,7 +71,7 @@ export default function HomePage() {
             </div>
             <div className="hidden md:block h-8 w-px bg-outline" />
             <p className="text-xs font-bold tracking-widest text-navy/80 text-center uppercase">
-              Certified Quality Assurance • Hobart Region • Licensed &amp; Insured
+              Certified Quality Assurance • Geelong Region • Licensed &amp; Insured
             </p>
             <div className="hidden md:block h-8 w-px bg-outline" />
             <div className="flex items-center gap-2">
@@ -131,7 +131,7 @@ export default function HomePage() {
                     Architectural Estates
                   </h3>
                   <p className="text-white/80 max-w-md translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 font-medium">
-                    Premium interior and exterior finishes for Hobart&apos;s most distinguished homes.
+                    Premium interior and exterior finishes for Geelong&apos;s most distinguished homes.
                   </p>
                 </div>
               </div>
@@ -221,7 +221,7 @@ export default function HomePage() {
                           Years Combined Experience
                         </h4>
                         <p className="text-on-surface/60 font-medium leading-relaxed">
-                          Spanning two generations of master craftsmen in the Hobart region, we
+                          Spanning two generations of master craftsmen in the Geelong region, we
                           bring a level of knowledge that cannot be taught—only earned through
                           decades of practice.
                         </p>
@@ -233,7 +233,7 @@ export default function HomePage() {
                         <h4 className="font-bold text-xl text-navy mb-2">Projects Completed</h4>
                         <p className="text-on-surface/60 font-medium leading-relaxed">
                           From heritage cottages in Battery Point to state-of-the-art industrial
-                          facilities, our portfolio is a testament to Hobart&apos;s growth.
+                          facilities, our portfolio is a testament to Geelong&apos;s growth.
                         </p>
                       </div>
                     </div>
@@ -288,7 +288,7 @@ export default function HomePage() {
                   quote:
                     "Professionalism at its peak. The commercial project was completed ahead of schedule with zero compromise on the quality of the finish.",
                   name: "Sarah Chen",
-                  role: "Project Manager, Hobart CBD",
+                  role: "Project Manager, Geelong CBD",
                 },
                 {
                   quote:

@@ -1,26 +1,60 @@
+import Image from "next/image";
 import Link from "next/link";
+import { siteConfig } from "../siteConfig";
 
 export default function Footer() {
+  const contactItems = [
+    {
+      icon: "call",
+      text: siteConfig.phoneDisplay,
+      href: siteConfig.phoneHref,
+    },
+    {
+      icon: "mail",
+      text: siteConfig.email,
+      href: siteConfig.emailHref,
+    },
+    {
+      icon: "location_on",
+      text: siteConfig.addressSingleLine,
+      href: siteConfig.mapsHref,
+    },
+  ];
+
   return (
     <footer className="bg-navy text-white pt-32 pb-16 mt-40">
       <div className="max-w-screen-2xl mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 pb-20 border-b border-white/5">
           {/* Brand */}
-          <div className="space-y-10">
-            <Link href="/" className="text-2xl font-headline tracking-tighter text-white block">
-              ELITE<span className="text-vibrant-accent">FINISH</span>
+          <div className="space-y-8">
+            <Link href="/" className="block w-fit">
+              <div className="rounded-[1.75rem] border border-white/15 bg-gradient-to-br from-white via-slate-50 to-slate-100 p-4 shadow-[0_24px_60px_-18px_rgba(0,0,0,0.45)] ring-1 ring-white/10">
+                <Image
+                  src="/Elite-finish-logo.jpeg"
+                  alt={siteConfig.businessName}
+                  width={320}
+                  height={246}
+                  className="h-24 w-auto object-contain"
+                />
+              </div>
             </Link>
-            <p className="text-sm text-white/50 leading-relaxed font-medium max-w-xs">
+            <div className="space-y-3">
+              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-vibrant-accent">
+                Elite Finish Painting Service
+              </p>
+              <p className="text-sm text-white/55 leading-relaxed font-medium max-w-sm">
               Crafting exceptional architectural spaces with professional
               excellence for over 45 years. Master Painters Association
               Accredited.
-            </p>
-            <div className="flex space-x-4">
-              {["public", "share", "mail"].map((icon) => (
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-4 pt-2">
+              {contactItems.map(({ icon, href, text }) => (
                 <Link
                   key={icon}
-                  href="#"
-                  className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-navy transition-all duration-300"
+                  href={href}
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-white/12 bg-white/[0.03] hover:border-white/25 hover:bg-white hover:text-navy transition-all duration-300"
+                  aria-label={text}
                 >
                   <span className="material-symbols-outlined text-[20px]">{icon}</span>
                 </Link>
@@ -62,7 +96,7 @@ export default function Footer() {
               {[
                 { label: "Our Story", href: "/about" },
                 { label: "Portfolio", href: "/portfolio" },
-                { label: "Process", href: "/process" },
+                { label: "Services", href: "/services" },
                 { label: "Contact", href: "/contact" },
               ].map(({ label, href }) => (
                 <li key={label}>
@@ -83,20 +117,17 @@ export default function Footer() {
               Contact
             </p>
             <div className="space-y-6 text-sm font-medium">
-              {[
-                { icon: "call", text: "+1 (555) 890 2341" },
-                { icon: "mail", text: "hello@elitefinish.com" },
-                { icon: "location_on", text: "44 Artisan Way, Melbourne VIC" },
-              ].map(({ icon, text }) => (
-                <p
+              {contactItems.map(({ icon, text, href }) => (
+                <Link
                   key={icon}
+                  href={href}
                   className="flex items-center gap-4 text-white/70 hover:text-white transition-colors cursor-pointer"
                 >
                   <span className="material-symbols-outlined text-vibrant-accent text-[18px]">
                     {icon}
                   </span>
                   {text}
-                </p>
+                </Link>
               ))}
             </div>
           </div>

@@ -1,14 +1,16 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { siteConfig } from "../siteConfig";
 
 const NAV_LINKS = [
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Process", href: "/process" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function NavBar() {
@@ -37,12 +39,19 @@ export default function NavBar() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-2xl font-headline tracking-tighter text-navy group flex items-center"
+          className="group flex shrink-0 items-center"
         >
-          <span className="relative overflow-hidden inline-block">
-            ELITE<span className="text-vibrant-accent">FINISH</span>
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-navy transition-all duration-500 group-hover:w-full" />
-          </span>
+          <div className="relative overflow-hidden rounded-xl">
+            <Image
+              src={siteConfig.logoPath}
+              alt={siteConfig.businessName}
+              width={220}
+              height={170}
+              priority
+              className="h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-[1.02] md:h-16"
+            />
+            <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-navy transition-all duration-500 group-hover:w-full" />
+          </div>
         </Link>
 
         {/* Desktop links */}
