@@ -1,0 +1,186 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+
+const CATEGORIES = ["All Projects", "Residential", "Commercial", "Industrial", "Heritage"];
+
+const PROJECTS = [
+  {
+    title: "The Obsidian Villa",
+    category: "Residential",
+    desc: "Achieving a mirror-like finish on custom concrete rendering for a seamless, monolithic aesthetic.",
+    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAIdFYY8rLWuidUj6iE50ODZqpqnHJFtn_H4bMJaT9pOoja16k_mVONZBoryP2LFdCyj_OaFSQTqHiYlgMZGD3qROaIN7cvDHD3U91GESWDg6O4qEP6GHwFLtW2NDrUG_vcahIcOlsCmTSQnGx0VrWPjAG5qBvxwns31X_AoqWuSlnF0pNAQ-5gjZwgDcX83p6A75oMrfQDEWDzdggpgq0RBRfeh6fOAGFIgWo020Okcg3lzAz6dwxEb4nuPp3K9n63xv9ibJpBC0c",
+    aspect: "aspect-[3/4]",
+  },
+  {
+    title: "Aura Financial HQ",
+    category: "Commercial",
+    desc: "Large-scale acoustic wall treatments with pristine, eco-conscious coatings across 14 floors.",
+    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuHech-rpEbI0qwtw_t9TwXsGRI41qE7IKF31GPp9j_mOIxn-DouwmlzBm3Lvx4DjeoAXpbNPCE-Ic8QCGjm93owK5Yt9gw5c2REpD_euZa0Lx6ID-TY4MMsntfUrkdtXfhXfRr4tci-VC37iOgAS9hyS8wgCC4qnmsXZXwGR3RFFxjBVjdC7-K4FbuQ6pxZKgM0qQUhqSZFrSBSg_4uw1MFA7BXpqxE0Iu2kXOdRzyKA7lf0JrZqtSK_2lJNKfaYAz8nPeupipkaU",
+    aspect: "aspect-square",
+  },
+  {
+    title: "Heritage Restoration",
+    category: "Heritage",
+    desc: "Precision hand-brush work restoring delicate 19th-century cornicing to original grandeur.",
+    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAmMrdjAtr7lp7r1R2TqDH-XLkfQkHsyrfYLnh322hAQKDCCraH6DrUPSNmEHl7tPPMpO756ulqBS0i3yJb0jE1Ic1zQTj0YkRvwZqZ_LRpawVibmwjQOqu33ffApVsvaVzJLq-iGy8jDeD-CNbZJ6WaXHUYtEDAXwyx3rn_i6du2HvN6hnJEoh90zZjJq_E-ZMfDBfnrvnDzTESPeHaLFhJQZ8D4idiJJbaxxp45i9iVJkghKoQoLNSvnr8chA_IOvjvD1FFYF2JM",
+    aspect: "aspect-[4/5]",
+  },
+  {
+    title: "Techno Logistics Hub",
+    category: "Industrial",
+    desc: "High-durability slip-resistant epoxy finish with 15-year warranty for heavy machinery usage.",
+    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDt8_05hB2W1f_KRXPG8iOF5JnoJrlQWlY26DzJNijSX_d1LoE3a7p3V7KsYxsx1Xomw6FkyIidNaTMlfEpF5UlnTMY0L6rmPOtzvBcwmSazInI-usi7VOC4GQ41B0izuyp1nFb8QJ4XvqQMeGTNnnBkw-1q9OoYYayZfjHmQzeYkcBF4704KGne6pKamt14e048tk3-hV_v9U5DgzZ3T3P6OMThgdRyyy6NrSYt0QuvX5ZV5Mgky7XgPoXTN7UpQgweusuMc6EalY",
+    aspect: "aspect-video",
+  },
+  {
+    title: "The Sage Loft",
+    category: "Residential",
+    desc: "Creating a velvet-touch matte finish that resists fingerprints for elevated daily living.",
+    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCz4DYGQMfO_jxN8QZ5jDi3ZmH1JaMp9IlxO8n4TQl-o3OFjon5y-pKw8U_L5Viad1sRz-DyiChXAh6hxLR22L9PCxSRzJaIDAcQk93OHlv06omvTcbtQm2khr0UTPEfHaXBjpiwQ7A9ziOHDU8aH1gNQqMIHqHEaivniZHIFFJpP36HF4_vBzgRVwcy5u5-EEXXjdELRoQKjxSjHRy3BiP7u4mgTOE9nCrnS4-NjIE9-Ok38nPXAU4V7T8lc0ZgwiMAeRQmMBrX8s",
+    aspect: "aspect-square",
+  },
+  {
+    title: "Urban Monolith",
+    category: "Commercial",
+    desc: "Weather-proof multi-textured exterior facade with a sharp architectural editorial edge.",
+    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBusSawxMyjD0imjciPnpbFQU2ncBKhVRQWqt4Ao_ntZZjqU7EtsJsEWSoFqvxjCrxtCdmcJY1MC_TLyBLW0THuTG6ByNCmo29NrDp9lbAGhbl-As2lo0T7h8Eh-WAshlA-rx99toEEMP7wvMTeD8mJb6bnUTdKhR8jI7Q_MrhCIAR7tXD70OhBu3Bhl89lw2FSe1BPo2xglVi0Gv1ZcHN_Gcbn7BWpNjJ-UtbO9Z9UcwnDV1xjfgp-Ix4Zs2NyeGwlwfafUOoihH0",
+    aspect: "aspect-[3/4]",
+  },
+];
+
+export default function PortfolioPage() {
+  const [active, setActive] = useState("All Projects");
+
+  const filtered =
+    active === "All Projects"
+      ? PROJECTS
+      : PROJECTS.filter((p) => p.category === active);
+
+  return (
+    <div className="bg-white text-on-surface selection:bg-vibrant-accent/30">
+      <NavBar />
+
+      <main className="pt-40 pb-24">
+        {/* Header */}
+        <header className="max-w-screen-2xl mx-auto px-8 mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
+            <div className="md:col-span-8">
+              <span className="text-teal-accent font-bold uppercase tracking-[0.3em] text-[11px] mb-6 block">
+                Curated Works
+              </span>
+              <h1 className="text-6xl md:text-8xl font-headline text-navy leading-[1.05] tracking-tight">
+                Mastery in Every <br />
+                <span className="italic font-normal text-vibrant-accent">
+                  Stroke &amp; Surface.
+                </span>
+              </h1>
+            </div>
+            <div className="md:col-span-4 pb-3">
+              <p className="text-on-surface-variant text-xl leading-relaxed font-medium">
+                Explore our selection of premium finishes across heritage
+                estates, contemporary high-rises, and architectural icons.
+              </p>
+            </div>
+          </div>
+        </header>
+
+        {/* Filter bar */}
+        <section className="max-w-screen-2xl mx-auto px-8 mb-20">
+          <div className="flex flex-wrap items-center gap-x-10 gap-y-6 border-b border-outline pb-8">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActive(cat)}
+                className={`font-bold uppercase tracking-widest text-[10px] transition-all ${
+                  active === cat
+                    ? "bg-vibrant-accent text-white px-6 py-2 rounded-full shadow-lg shadow-vibrant-accent/20"
+                    : "text-on-surface-variant hover:text-teal-accent"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </section>
+
+        {/* Masonry grid */}
+        <section className="max-w-screen-2xl mx-auto px-8">
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-10">
+            {filtered.map((project) => (
+              <div
+                key={project.title}
+                className="mb-12 group cursor-pointer break-inside-avoid transition-transform duration-[600ms] cubic-bezier-[0.16,1,0.3,1] hover:-translate-y-2"
+              >
+                <div className="bg-surface-variant rounded-xl overflow-hidden shadow-sm">
+                  <div className={`relative ${project.aspect}`}>
+                    <Image
+                      src={project.img}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-[800ms] group-hover:scale-[1.05]"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </div>
+                </div>
+                <div className="mt-8">
+                  <div className="flex justify-between items-center mb-3">
+                    <h3 className="text-2xl font-headline text-navy">
+                      {project.title}
+                    </h3>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-teal-accent px-3 py-1 bg-teal-accent/5 rounded-full">
+                      {project.category}
+                    </span>
+                  </div>
+                  <p className="text-on-surface-variant text-base leading-relaxed font-medium">
+                    {project.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Load more */}
+          <div className="mt-24 flex justify-center">
+            <button className="group flex items-center space-x-5 text-navy font-bold uppercase tracking-widest text-[11px] hover:text-vibrant-accent transition-all">
+              <span className="w-14 h-[2px] bg-outline group-hover:w-24 group-hover:bg-vibrant-accent transition-all" />
+              <span>Explore Full Archives</span>
+              <span className="material-symbols-outlined text-xl transition-transform group-hover:translate-y-1">
+                expand_more
+              </span>
+            </button>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="mt-40 bg-surface-variant py-32">
+          <div className="max-w-screen-2xl mx-auto px-8 text-center">
+            <h2 className="text-5xl md:text-6xl font-headline mb-12 max-w-3xl mx-auto leading-tight text-navy">
+              Ready to commission your next{" "}
+              <span className="italic font-normal text-vibrant-accent">
+                masterpiece?
+              </span>
+            </h2>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <Link
+                href="/contact"
+                className="bg-navy text-white px-12 py-5 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-teal-accent hover:shadow-2xl hover:-translate-y-1 transition-all"
+              >
+                Schedule Consultation
+              </Link>
+              <button className="border-2 border-navy/10 text-navy px-12 py-5 rounded-full font-bold uppercase tracking-widest text-xs hover:border-vibrant-accent hover:text-vibrant-accent transition-all">
+                Download Brochure
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
