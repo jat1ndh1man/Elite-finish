@@ -2,9 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+
+const serviceNavItems = [
+  { label: "Residential", href: "#residential", id: "residential", num: "01" },
+  { label: "Commercial", href: "#commercial", id: "commercial", num: "02" },
+  { label: "Artisan Finishes", href: "#specialty", id: "specialty", num: "03" },
+  { label: "Industrial Floor", href: "#industrial", id: "industrial", num: "04" },
+];
 
 const artisanCards = [
   {
@@ -28,6 +35,8 @@ const artisanCards = [
 ];
 
 export default function ServicesPage() {
+  const [activeSection, setActiveSection] = useState("residential");
+
   useEffect(() => {
     // Scroll-reveal via IntersectionObserver
     const observer = new IntersectionObserver(
@@ -40,8 +49,27 @@ export default function ServicesPage() {
     );
     document.querySelectorAll(".scroll-reveal").forEach((el) => observer.observe(el));
 
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        const visibleSection = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visibleSection?.target.id) {
+          setActiveSection(visibleSection.target.id);
+        }
+      },
+      { threshold: [0.15, 0.35, 0.6], rootMargin: "-25% 0px -45% 0px" }
+    );
+
+    serviceNavItems.forEach(({ id }) => {
+      const section = document.getElementById(id);
+      if (section) sectionObserver.observe(section);
+    });
+
     return () => {
       observer.disconnect();
+      sectionObserver.disconnect();
     };
   }, []);
 
@@ -132,30 +160,39 @@ export default function ServicesPage() {
                 <p className="text-label text-[10px] text-on-surface-variant/50 mb-4 px-2 tracking-[0.2em]">
                   Quick Jump
                 </p>
-                {[
-                  { label: "Residential", href: "#residential", num: "01", active: true },
-                  { label: "Commercial", href: "#commercial", num: "02", active: false },
-                  { label: "Artisan Finishes", href: "#specialty", num: "03", active: false },
-                  { label: "Industrial Floor", href: "#industrial", num: "04", active: false },
-                ].map(({ label, href, num, active }) => (
-                  <Link
-                    key={label}
-                    href={href}
-                    className={`group flex items-center justify-between p-3 rounded-xl hover:bg-surface-variant transition-all text-base ${
-                      active
-                        ? "text-navy font-bold"
-                        : "text-on-surface-variant font-medium hover:text-navy"
-                    }`}
-                  >
-                    <div className="flex items-center gap-4">
-                      <span className="w-1 h-1 rounded-full bg-vibrant-accent opacity-0 group-hover:opacity-100 transition-all scale-0 group-hover:scale-100" />
-                      <span>{label}</span>
-                    </div>
-                    <span className="text-[10px] text-label text-on-surface-variant/40">
-                      {num}
-                    </span>
-                  </Link>
-                ))}
+                {serviceNavItems.map(({ label, href, id, num }) => {
+                  const active = activeSection === id;
+
+                  return (
+                    <Link
+                      key={label}
+                      href={href}
+                      className={`group flex items-center justify-between p-3 rounded-xl hover:bg-surface-variant transition-all text-base ${
+                        active
+                          ? "text-navy font-bold"
+                          : "text-on-surface-variant font-medium hover:text-navy"
+                      }`}
+                    >
+                      <div className="flex items-center gap-4">
+                        <span
+                          className={`w-1 h-1 rounded-full bg-vibrant-accent transition-all ${
+                            active
+                              ? "opacity-100 scale-100"
+                              : "opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100"
+                          }`}
+                        />
+                        <span>{label}</span>
+                      </div>
+                      <span
+                        className={`text-[10px] text-label ${
+                          active ? "text-vibrant-accent" : "text-on-surface-variant/40"
+                        }`}
+                      >
+                        {num}
+                      </span>
+                    </Link>
+                  );
+                })}
               </nav>
 
               {/* CTA card */}
@@ -414,7 +451,7 @@ export default function ServicesPage() {
                 {/* Right: image */}
                 <div className="relative h-full min-h-[500px] overflow-hidden group">
                   <Image
-                    src="/4(1).jpeg"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwhwpC8X9rB6-EAEOPwc8TcX9ffRNLyNSbOIYzIP-srvET6Z7AMnUP0XCvhInAH3sdHksPFOu_4ip2xF_m5Dkl3sViCDO0KzlVTjX6xbeW3Px40gi2085-IP5WZusXKn5DbmrjNn8UkWhzZYRmTji3te8ZhgcCe1kcJeCuj1CYzFa692x50fMueFETfO03K3kof-r95m8TEQdPvfWUecj8NgSXrFbbbK1Dc6yFJj-W1TVarT15QtJgKdjsMZKsL5TwV0Qz2Y_7lR8"
                     alt="Industrial floor"
                     fill
                     className="object-cover transition-transform duration-[2000ms] group-hover:scale-110"
