@@ -144,16 +144,6 @@ export default function PortfolioPage() {
             ))}
           </div>
 
-          {/* Load more */}
-          <div className="mt-24 flex justify-center">
-            <button className="group flex items-center space-x-5 text-navy font-bold uppercase tracking-widest text-[11px] hover:text-vibrant-accent transition-all">
-              <span className="w-14 h-[2px] bg-outline group-hover:w-24 group-hover:bg-vibrant-accent transition-all" />
-              <span>Explore Full Archives</span>
-              <span className="material-symbols-outlined text-xl transition-transform group-hover:translate-y-1">
-                expand_more
-              </span>
-            </button>
-          </div>
         </section>
 
         {/* CTA */}
@@ -172,9 +162,6 @@ export default function PortfolioPage() {
               >
                 Schedule Consultation
               </Link>
-              <button className="border-2 border-navy/10 text-navy px-12 py-5 rounded-full font-bold uppercase tracking-widest text-xs hover:border-vibrant-accent hover:text-vibrant-accent transition-all">
-                Download Brochure
-              </button>
             </div>
           </div>
         </section>

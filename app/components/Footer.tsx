@@ -138,13 +138,16 @@ export default function Footer() {
             © 2024 ELITE FINISH. All Rights Reserved.
           </p>
           <div className="flex gap-10 text-[10px] text-white/20 font-bold tracking-widest uppercase">
-            {["Privacy Policy", "Terms of Service"].map((item) => (
+            {[
+              { label: "Privacy Policy", href: "/privacy-policy" },
+              { label: "Terms of Service", href: "/terms-of-service" },
+            ].map(({ label, href }) => (
               <Link
-                key={item}
-                href="#"
+                key={label}
+                href={href}
                 className="hover:text-vibrant-accent transition-colors"
               >
-                {item}
+                {label}
               </Link>
             ))}
           </div>

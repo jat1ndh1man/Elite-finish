@@ -106,7 +106,7 @@ export default function ServicesPage() {
               </p>
               <div className="flex items-center gap-8">
                 <Link
-                  href="#residential"
+                  href="/portfolio"
                   className="group flex items-center gap-4 text-navy font-bold hover:gap-6 transition-all"
                 >
                   <span className="w-12 h-12 rounded-full border border-outline flex items-center justify-center group-hover:bg-navy group-hover:text-white transition-all">
@@ -206,7 +206,7 @@ export default function ServicesPage() {
                     Schedule a site walk-through with our master consultants.
                   </p>
                   <Link
-                    href="#"
+                    href="/contact"
                     className="inline-flex items-center gap-2 bg-white text-navy px-6 py-3 rounded-full font-bold text-xs hover:bg-vibrant-accent hover:shadow-lg transition-all relative z-10"
                   >
                     Consult Now{" "}
@@ -262,10 +262,13 @@ export default function ServicesPage() {
                       </div>
                     ))}
                   </div>
-                  <button className="bg-navy text-white px-10 py-4 rounded-full font-bold text-xs tracking-widest uppercase hover:bg-vibrant-accent hover:text-navy hover:shadow-xl hover:-translate-y-1 transition-all inline-flex items-center gap-3">
+                  <Link
+                    href="/portfolio"
+                    className="bg-navy text-white px-10 py-4 rounded-full font-bold text-xs tracking-widest uppercase hover:bg-vibrant-accent hover:text-navy hover:shadow-xl hover:-translate-y-1 transition-all inline-flex items-center gap-3"
+                  >
                     View Showcase{" "}
                     <span className="material-symbols-outlined text-sm">east</span>
-                  </button>
+                  </Link>
                 </div>
                 <div className="order-1 md:order-2">
                   <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl relative group magnetic-hover">
@@ -339,14 +342,6 @@ export default function ServicesPage() {
                         </div>
                       ))}
                     </div>
-                    <button className="text-navy font-bold text-xs tracking-widest uppercase flex items-center gap-4 group">
-                      <span className="w-12 h-12 rounded-full border border-navy/20 flex items-center justify-center group-hover:bg-navy group-hover:text-white transition-all">
-                        <span className="material-symbols-outlined text-[18px]">
-                          arrow_forward
-                        </span>
-                      </span>
-                      Project Methodology
-                    </button>
                   </div>
                 </div>
               </div>
@@ -369,7 +364,7 @@ export default function ServicesPage() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 {artisanCards.map(({ title, desc, img, alt }) => (
-                  <div key={title} className="group cursor-pointer">
+                  <Link key={title} href="/portfolio" className="group block cursor-pointer">
                     <div className="aspect-[3/4] rounded-2xl overflow-hidden mb-8 shadow-xl border border-outline/30 relative">
                       <Image
                         src={img}
@@ -390,7 +385,7 @@ export default function ServicesPage() {
                       Explore{" "}
                       <span className="w-8 h-[1px] bg-vibrant-accent/30 group-hover:w-12 transition-all" />
                     </span>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </section>
@@ -440,13 +435,6 @@ export default function ServicesPage() {
                       </div>
                     ))}
                   </div>
-                  <button className="group relative w-fit inline-flex items-center gap-4 bg-vibrant-accent text-navy px-12 py-5 rounded-full font-extrabold text-[11px] tracking-[0.2em] uppercase hover:bg-white transition-all duration-500 overflow-hidden">
-                    <span className="relative z-10">Systems Catalog</span>
-                    <span className="material-symbols-outlined relative z-10 transition-transform group-hover:translate-x-2">
-                      arrow_forward
-                    </span>
-                    <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                  </button>
                 </div>
                 {/* Right: image */}
                 <div className="relative h-full min-h-[500px] overflow-hidden group">
