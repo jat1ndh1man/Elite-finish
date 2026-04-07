@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { type FormEvent, useState } from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { siteConfig } from "../siteConfig";
@@ -31,6 +34,35 @@ const CONTACT_METHODS = [
 const SERVICE_REGIONS = siteConfig.serviceRegions;
 
 export default function ContactPage() {
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("sending");
+    setStatusMessage("");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(Object.fromEntries(formData)),
+    });
+    const result = (await response.json().catch(() => null)) as { message?: string } | null;
+
+    if (!response.ok) {
+      setStatus("error");
+      setStatusMessage(result?.message ?? "Unable to send your request right now.");
+      return;
+    }
+
+    form.reset();
+    setStatus("success");
+    setStatusMessage(result?.message ?? "Your request has been sent.");
+  }
+
   return (
     <div className="bg-white text-on-surface selection:bg-vibrant-accent/20">
       <NavBar />
@@ -115,7 +147,7 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <form className="space-y-8">
+              <form className="space-y-8" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                   <div className="space-y-2">
                     <label
@@ -126,8 +158,46 @@ export default function ContactPage() {
                     </label>
                     <input
                       id="full-name"
+                      name="fullName"
                       type="text"
+                      required
                       placeholder="Julian Vane"
+                      className="w-full border-0 border-b-2 border-outline bg-surface-variant px-0 py-3 text-on-surface placeholder:text-on-surface-variant/50 focus:border-teal-accent focus:outline-none"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-xs font-bold uppercase tracking-[0.2em] text-navy"
+                    >
+                      Email Address
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="you@example.com"
+                      className="w-full border-0 border-b-2 border-outline bg-surface-variant px-0 py-3 text-on-surface placeholder:text-on-surface-variant/50 focus:border-teal-accent focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="phone"
+                      className="block text-xs font-bold uppercase tracking-[0.2em] text-navy"
+                    >
+                      Phone Number
+                    </label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      required
+                      placeholder="0401 550 823"
                       className="w-full border-0 border-b-2 border-outline bg-surface-variant px-0 py-3 text-on-surface placeholder:text-on-surface-variant/50 focus:border-teal-accent focus:outline-none"
                     />
                   </div>
@@ -141,6 +211,7 @@ export default function ContactPage() {
                     </label>
                     <select
                       id="project-type"
+                      name="projectType"
                       className="w-full cursor-pointer border-0 border-b-2 border-outline bg-surface-variant px-0 py-3 text-on-surface focus:border-teal-accent focus:outline-none"
                       defaultValue="Residential Painting"
                     >
@@ -162,8 +233,9 @@ export default function ContactPage() {
                     </label>
                     <input
                       id="project-location"
+                      name="projectLocation"
                       type="text"
-                      placeholder="e.g. Sandy Bay, TAS"
+                      placeholder="e.g. Highton, VIC"
                       className="w-full border-0 border-b-2 border-outline bg-surface-variant px-0 py-3 text-on-surface placeholder:text-on-surface-variant/50 focus:border-teal-accent focus:outline-none"
                     />
                   </div>
@@ -177,6 +249,7 @@ export default function ContactPage() {
                     </label>
                     <select
                       id="timeline"
+                      name="timeline"
                       className="w-full cursor-pointer border-0 border-b-2 border-outline bg-surface-variant px-0 py-3 text-on-surface focus:border-teal-accent focus:outline-none"
                       defaultValue="Immediate"
                     >
@@ -196,11 +269,25 @@ export default function ContactPage() {
                   </label>
                   <textarea
                     id="project-description"
+                    name="projectDescription"
                     rows={4}
+                    required
                     placeholder="Tell us about your project vision..."
                     className="w-full resize-none border-0 border-b-2 border-outline bg-surface-variant px-0 py-3 text-on-surface placeholder:text-on-surface-variant/50 focus:border-teal-accent focus:outline-none"
                   />
                 </div>
+
+                {statusMessage ? (
+                  <p
+                    className={`rounded-xl px-4 py-3 text-sm font-bold ${
+                      status === "success"
+                        ? "bg-teal-accent/10 text-teal-accent"
+                        : "bg-vibrant-accent/10 text-vibrant-accent"
+                    }`}
+                  >
+                    {statusMessage}
+                  </p>
+                ) : null}
 
                 <div className="flex flex-col gap-6 border-t border-outline pt-6 md:flex-row md:items-center md:justify-between">
                   <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-on-surface-variant">
@@ -215,9 +302,10 @@ export default function ContactPage() {
 
                   <button
                     type="submit"
-                    className="w-full rounded-xl bg-gradient-to-r from-vibrant-accent to-[#ea580c] px-10 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-vibrant-accent/20 transition-all hover:-translate-y-0.5 hover:shadow-vibrant-accent/40 md:w-auto"
+                    disabled={status === "sending"}
+                    className="w-full rounded-xl bg-gradient-to-r from-vibrant-accent to-[#ea580c] px-10 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-vibrant-accent/20 transition-all hover:-translate-y-0.5 hover:shadow-vibrant-accent/40 disabled:cursor-not-allowed disabled:opacity-60 md:w-auto"
                   >
-                    Submit Request
+                    {status === "sending" ? "Sending..." : "Submit Request"}
                   </button>
                 </div>
               </form>
@@ -257,8 +345,8 @@ export default function ContactPage() {
             <div className="group relative overflow-hidden rounded-[2rem] border border-outline shadow-sm">
               <div className="relative h-[420px] w-full">
                 <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv4cKa_rQOSfWrXcvH-2h0rYG4ugE50VnGJMKbWDmU2kvgvaYohNXhE1H8xStSfTJ59qxotQ23f75yeHs6T79LvTk7PnPSRguelltaAgFfDsjmGlp9KE7SFUlXn878dcnmICjySKx2BgyeYPGKG7BIlAavJYNWtad_WRvlQLb2Ni_WKXX-ScQUosg9xVmkYBX9WViRXdP1UgAPs5V303wIq05qpDuzXL2eXOdRbv1g0q155U0Y0Xm4nplB3o62L4OxwwizI_MzJqQ"
-                  alt="Map showing Elite Finish service regions in Greater Geelong"
+                  src="/4(2).jpeg"
+                  alt="Elite Finish service area project in Greater Geelong"
                   fill
                   className="object-cover grayscale transition-all duration-1000 group-hover:grayscale-0"
                   sizes="100vw"
@@ -292,6 +380,42 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
+
+      <div className="fixed bottom-8 right-8 z-[60] flex flex-col gap-3">
+        <Link
+          href={siteConfig.whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Message Elite Finish on WhatsApp"
+          className="group flex items-center justify-end gap-3"
+        >
+          <span className="pointer-events-none translate-x-2 rounded-lg bg-navy px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white opacity-0 shadow-xl transition-all group-hover:translate-x-0 group-hover:opacity-100">
+            WhatsApp
+          </span>
+          <span className="flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl shadow-[#25D366]/30 transition-all group-hover:-translate-y-1 group-hover:scale-105">
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 32 32"
+              className="h-8 w-8 fill-current"
+            >
+              <path d="M16.04 3.2c-7.06 0-12.8 5.7-12.8 12.73 0 2.25.6 4.45 1.72 6.38L3.13 29l6.87-1.8a12.9 12.9 0 0 0 6.04 1.53c7.05 0 12.8-5.7 12.8-12.73 0-3.4-1.34-6.6-3.75-9.02A12.73 12.73 0 0 0 16.04 3.2Zm0 23.37c-1.9 0-3.77-.5-5.4-1.44l-.4-.23-4.08 1.07 1.09-3.96-.26-.41a10.5 10.5 0 0 1-1.6-5.67c0-5.83 4.78-10.57 10.65-10.57 2.85 0 5.52 1.1 7.53 3.1a10.5 10.5 0 0 1 3.12 7.54c0 5.83-4.78 10.57-10.65 10.57Zm5.84-7.9c-.32-.16-1.9-.93-2.2-1.04-.3-.1-.51-.16-.73.16-.21.32-.84 1.04-1.03 1.25-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.95-.85-1.6-1.9-1.78-2.22-.19-.32-.02-.5.14-.65.15-.14.32-.38.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.72-1.73-.99-2.37-.26-.62-.53-.54-.72-.55h-.62c-.21 0-.56.08-.86.4-.3.32-1.13 1.1-1.13 2.68s1.16 3.1 1.32 3.32c.16.21 2.29 3.48 5.55 4.88.78.34 1.38.54 1.85.69.78.25 1.48.21 2.04.13.62-.09 1.9-.77 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.3-.21-.62-.37Z" />
+            </svg>
+          </span>
+        </Link>
+
+        <Link
+          href={siteConfig.phoneHref}
+          aria-label={`Call Elite Finish at ${siteConfig.phoneDisplay}`}
+          className="group flex items-center justify-end gap-3"
+        >
+          <span className="pointer-events-none translate-x-2 rounded-lg bg-navy px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white opacity-0 shadow-xl transition-all group-hover:translate-x-0 group-hover:opacity-100">
+            Call Now
+          </span>
+          <span className="flex h-16 w-16 items-center justify-center rounded-full bg-navy text-white shadow-2xl shadow-navy/25 transition-all group-hover:-translate-y-1 group-hover:scale-105 group-hover:bg-vibrant-accent">
+            <span className="material-symbols-outlined text-3xl">call</span>
+          </span>
+        </Link>
+      </div>
 
       <Footer />
     </div>

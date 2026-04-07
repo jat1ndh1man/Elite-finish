@@ -10,7 +10,7 @@ const VALUES = [
   {
     icon: "auto_awesome",
     title: "Uncompromising Quality",
-    desc: "Every surface we touch reflects decades of mastery. We never cut corners — only sharp, precise edges.",
+    desc: "Every surface we touch reflects careful preparation, trade knowledge, and clean execution.",
   },
   {
     icon: "handshake",
@@ -24,35 +24,14 @@ const VALUES = [
   },
   {
     icon: "workspace_premium",
-    title: "Legacy Craftsmanship",
-    desc: "Techniques passed through generations, elevated by modern innovation — ensuring every finish stands the test of time.",
-  },
-];
-
-const TEAM = [
-  {
-    name: "Marcus Elliot",
-    role: "Master Painter & Founder",
-    since: "Est. 1979",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCO8Y865uJL8M_M6jzYG0IItCKeYllj_O8KBiu3lJbjCGfzDeQrKuLCtls6_UDym0mKin2n8XUDwZOUuprrb9m4Qvde0xEeaJMR-s2VXMBVsMFbsRCOyErnFZ51sXoUJFa5wcjywZDP5eyuFuh0CO6K1YESTvqPnO_IyvioTFFhzpFERNTMg1AhdHhBPobtUjXDQv5S7Ejc2rIHfOZq1s76-MoIOYkNUwMhN2nHUrfz5YbAgelHyu_N7cBwyCw0AVrGOXm1trWuXH0",
-  },
-  {
-    name: "Sophia Vane",
-    role: "Head of Colour Strategy",
-    since: "12 years",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBUuc3BvHUkTOK-TyHSBNNd7tBgSrFPS6KHMzoLPdXJ10cpbLeKge7qxElTTjxuMbq7FmMY5YWBYcV0VvBC6x8WMNzSi7lTAtuDTUNyr0yBcnbiiIn1Vxftp-7ESjkmcZRYKTRlAYCb7jHdOBxnMPgpeyXNJGNtPd4lqGOBRFEkFgbmiwKi3uRhEba5i1JbEbO_cDpQaeOwo9KJ9FWn33X_z9zLuKWK6fu4WQDjZ8cyFY9sLA0CPngefzvUVp26WKXDtDJrGk0yJqA",
-  },
-  {
-    name: "James Okoro",
-    role: "Lead Industrial Specialist",
-    since: "8 years",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBwhwpC8X9rB6-EAEOPwc8TcX9ffRNLyNSbOIYzIP-srvET6Z7AMnUP0XCvhInAH3sdHksPFOu_4ip2xF_m5Dkl3sViCDO0KzlVTjX6xbeW3Px40gi2085-IP5WZusXKn5DbmrjNn8UkWhzZYRmTji3te8ZhgcCe1kcJeCuj1CYzFa692x50fMueFETfO03K3kof-r95m8TEQdPvfWUecj8NgSXrFbbbK1Dc6yFJj-W1TVarT15QtJgKdjsMZKsL5TwV0Qz2Y_7lR8",
+    title: "Experienced Craftsmanship",
+    desc: "Experienced painters working together with modern products and disciplined systems to deliver finishes that last.",
   },
 ];
 
 const STATS = [
-  { value: "45+", label: "Years of Mastery" },
-  { value: "1,200+", label: "Projects Completed" },
+  { value: "2024", label: "Company Established" },
+  { value: "10+", label: "Years Combined Experience" },
   { value: "4.9★", label: "Google Rating" },
   { value: "100%", label: "MPA Accredited" },
 ];
@@ -87,19 +66,19 @@ export default function AboutPage() {
                 </span>
               </div>
               <h1 className="text-6xl md:text-[5.5rem] font-headline leading-[0.95] mb-10 text-navy tracking-tighter">
-                Forty-Five Years
+                Founded in 2024
                 <br />
-                of{" "}
+                by{" "}
                 <span className="text-vibrant-accent italic relative">
-                  Excellence.
+                  Experience.
                   <span className="absolute -bottom-2 left-0 w-full h-1 bg-vibrant-accent/20 rounded-full" />
                 </span>
               </h1>
               <p className="text-xl text-on-surface-variant max-w-xl font-medium leading-relaxed mb-12">
-                Founded in 1979 by master craftsman Marcus Elliot, Elite Finish
-                has grown from a two-man operation to one of Australia&apos;s
-                most respected architectural painting studios — built on an
-                unshakeable commitment to quality.
+                Elite Finish was formed when experienced painting professionals
+                joined together to deliver premium residential, commercial, and
+                specialty finishes across Geelong with an unshakeable commitment
+                to quality.
               </p>
               <Link
                 href="/contact"
@@ -112,8 +91,8 @@ export default function AboutPage() {
             <div className="lg:col-span-5 relative">
               <div className="w-full aspect-[4/5] relative rounded-3xl overflow-hidden shadow-[0_40px_80px_-15px_rgba(20,43,88,0.15)] animate-float">
                 <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO8Y865uJL8M_M6jzYG0IItCKeYllj_O8KBiu3lJbjCGfzDeQrKuLCtls6_UDym0mKin2n8XUDwZOUuprrb9m4Qvde0xEeaJMR-s2VXMBVsMFbsRCOyErnFZ51sXoUJFa5wcjywZDP5eyuFuh0CO6K1YESTvqPnO_IyvioTFFhzpFERNTMg1AhdHhBPobtUjXDQv5S7Ejc2rIHfOZq1s76-MoIOYkNUwMhN2nHUrfz5YbAgelHyu_N7cBwyCw0AVrGOXm1trWuXH0"
-                  alt="Master painter Marcus Elliot"
+                  src="/7.jpeg"
+                  alt="Elite Finish painting work"
                   fill
                   className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
                   sizes="(max-width: 1024px) 100vw, 42vw"
@@ -121,10 +100,10 @@ export default function AboutPage() {
               </div>
               <div className="absolute -bottom-10 -left-10 glass-card p-6 rounded-2xl hidden md:block">
                 <p className="text-sm font-bold text-navy italic mb-1">
-                  &ldquo;Quality is not an act — it is a habit.&rdquo;
+                  &ldquo;Quality starts with experienced people working together.&rdquo;
                 </p>
                 <p className="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">
-                  — Marcus Elliot, Founder
+                  — Elite Finish Team
                 </p>
               </div>
             </div>
@@ -159,8 +138,8 @@ export default function AboutPage() {
               Our Core Values
             </h2>
             <p className="max-w-2xl mx-auto text-on-surface-variant text-lg font-medium leading-relaxed">
-              Four principles that have guided every brushstroke for
-              forty-five years.
+              Four principles that guide every brushstroke from our 2024
+              founding onward.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -189,24 +168,24 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
               <div>
                 <span className="text-teal-accent text-label text-[10px] mb-4 block font-bold tracking-[0.2em]">
-                  Our Heritage
+                  Our Formation
                 </span>
                 <h2 className="text-5xl font-headline text-navy mb-8 leading-tight">
-                  Built on Two
+                  Built by an
                   <br />
-                  Generations of Craft.
+                  Experienced Team.
                 </h2>
                 <p className="text-on-surface-variant text-lg leading-relaxed font-medium mb-8">
-                  In 1979, Marcus Elliot left a corporate painting firm to
-                  pursue something more meaningful — a studio where artistry
-                  and precision were never sacrificed for speed. What started
-                  as a residential service in Melbourne grew into a national
-                  reputation for excellence.
+                  In 2024, experienced painters and finishing specialists came
+                  together to form Elite Finish. The company was built around a
+                  shared standard: careful preparation, honest communication,
+                  and finishes that hold up in real homes and businesses.
                 </p>
                 <p className="text-on-surface-variant text-lg leading-relaxed font-medium mb-12">
-                  Today, his son Daniel leads the next generation of
-                  craftspeople, carrying the same founding ethos: every surface
-                  is an opportunity to create something extraordinary.
+                  Today, the team brings that joined experience to Highton,
+                  Grovedale, Geelong City, and the wider Greater Geelong region,
+                  treating every surface as an opportunity to deliver lasting
+                  value.
                 </p>
                 <Link
                   href="/portfolio"
@@ -224,8 +203,8 @@ export default function AboutPage() {
                 <div className="absolute inset-0 border-4 border-vibrant-accent/20 translate-x-6 translate-y-6 rounded-3xl" />
                 <div className="relative w-full h-full rounded-3xl overflow-hidden z-10">
                   <Image
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtvGNQ7WLP06WE9btGltAvhJ1n4f-ZiUDhLfAbE7XKuyCpSFVs6E1RU_iAlKdwVaHeh-Ce2l5W4_VVCL6SnJwc-aNw7WLXUbwrOMczi9j4yt1rxzohyaB2GswzU7Hq-Xy2gOibkOstEZ_3_e2kjlficxGAXjE-x_foRbZx7cIHAkKHObXDxow2h1jThZY4cYmsmCPIhyTTAf6_cVdNpORvD7rqYYMRh1YOfgK4Vt-VPRi2LdoEuxZGuy-H6HteOZd13XjvWKF9G24"
-                    alt="Master painter at work"
+                    src="/8.jpeg"
+                    alt="Elite Finish surface finish"
                     fill
                     className="object-cover"
                     sizes="50vw"
@@ -240,36 +219,35 @@ export default function AboutPage() {
         <section className="py-32 max-w-screen-2xl mx-auto px-8 scroll-reveal">
           <div className="text-center mb-24">
             <span className="text-teal-accent text-label text-[10px] mb-4 block font-bold tracking-[0.2em]">
-              The People Behind the Craft
+              Company Directors
             </span>
             <h2 className="text-5xl md:text-6xl font-headline text-navy">
-              Meet the Masters
+              Our Team
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {TEAM.map(({ name, role, since, img }) => (
-              <div key={name} className="group cursor-pointer">
-                <div className="aspect-[3/4] rounded-2xl overflow-hidden mb-8 shadow-xl border border-outline/30 relative magnetic-hover">
-                  <Image
-                    src={img}
-                    alt={name}
-                    fill
-                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                    sizes="33vw"
-                  />
-                  <div className="absolute inset-0 bg-navy/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="mx-auto max-w-5xl">
+            <div className="relative aspect-[1178/912] overflow-hidden rounded-3xl border border-outline/30 shadow-2xl">
+              <Image
+                src="/team.png"
+                alt="Elite Finish team"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 80vw"
+              />
+            </div>
+            <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+              {["Parampreet Singh", "Hardeep Kaler"].map((name) => (
+                <div
+                  key={name}
+                  className="rounded-2xl border border-outline/30 bg-white p-8 text-center shadow-sm"
+                >
+                  <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-vibrant-accent">
+                    Director
+                  </p>
+                  <h3 className="text-3xl font-headline text-navy">{name}</h3>
                 </div>
-                <h3 className="text-2xl font-headline text-navy mb-1">
-                  {name}
-                </h3>
-                <p className="text-on-surface-variant font-medium text-sm mb-2">
-                  {role}
-                </p>
-                <span className="text-vibrant-accent font-bold text-[10px] tracking-widest uppercase">
-                  {since}
-                </span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 

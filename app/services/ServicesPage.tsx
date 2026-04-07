@@ -10,19 +10,19 @@ const artisanCards = [
   {
     title: "Wood Graining",
     desc: "Reproducing the warmth of rare hardwoods on any surface with hand-painted precision.",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBrMnQK8rX3fIQWZrh5AylbsG12YONoybxVvM__OwC-m9UOOxbiCiuT8JtCumDxXVCCjKq2s_F9YFjflJR_7CKLVRugEvkg1Tbvd8Okzj-2xTcHqoQhaUiZDbCwYYFd61hX1XeBzOeQHyBNFdn7lv5Ri7J8DkW9KdbNwW64fqhgEzwmTcmQlfm5VMSHfrOssH5saqauPd1A0XMXYLe4xNc2fYpRVBRyP-Wr_rA2FmVCSXOaJZAxZpiPnGapPDdJatHc-DbIq5aQunI",
+    img: "/3.jpeg",
     alt: "Wood grain finish",
   },
   {
     title: "Marbling",
     desc: "Ethereal stone effects including Carrara and Nero Marquina mineral textures.",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBOWkSyTJXu_dGLS6dyF7zfnF7VyKMJWOP0ByjsFGr0cvMoTg-Q88xfrxBtiGdaCPOn_ihwzygWZ495aaX8PFfwQe0tbHCTkLuK7Rgg8CPcE3-wfN23N4Hwq_H54vbE6emqu8R861y3Z2EkICTaCCnb2oB3kSBdIfXW05n8Wx7vnX2NdLEgZym6H-JX5hYiyvLpwuE0GQFUq5ReXYeRy_3XvG7MjYUMIp20uqDx6yW_tI4xtH3RMPFnXTyM9DPeJw5CzOTcSSlQW40",
+    img: "/3(1).jpeg",
     alt: "Marble finish",
   },
   {
     title: "Textured Glazing",
     desc: "Dimensional depth through rag rolling and contemporary metallic washes.",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC7mea_6IMIdEeEV-gkTMTjsSGzRkgA1IQFURgzZWy1_wdHME4ibzi51AF-bSfLVWU63MklEGoo1gCOzil8YDWkFxB-ElX38NUBYkmElP5V85JGOHBvs1ag2GdUMUKlgQ0OPeB-xH5wMge09z6ENpIbOWbKY0eNbcQuSIJHehw-Itr9dlfJWXiOgx6jPtSXmBNd7NAV8_5aaZ1m9UTRDJeAgmv4XpIiXmjBSpdVm52xR_chDGU9ly0zX-9YjDyBQS0_0HS-NsLZ8E8",
+    img: "/6.jpeg",
     alt: "Plaster texture",
   },
 ];
@@ -97,7 +97,7 @@ export default function ServicesPage() {
             <div className="lg:col-span-5 relative">
               <div className="w-full aspect-[4/5] relative rounded-3xl overflow-hidden shadow-[0_40px_80px_-15px_rgba(20,43,88,0.15)] animate-float">
                 <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa0_qpc3AN6n8oFksC2prE2jclgqh3QU6Na_RMs9Ds3iV5BFIGtZ1XwY18Elp2GaMlU5eb_GVoSDLTWfX7Op0dLCA52IqHSiekAqoZ9VmSS5dHYzK96On_moo-bzF9K2n4_HxW2zWBZAUJgcDDbMuZeWbE7iPE-zdlWUn6jTIK6ufpg9zMijUC_w0U-97WO5R1b4OOG5QCbcDgYoFgObkEw6emW8eh_MQm0sKxG5rX2Tc4nLYX9qgqOLyDnsbJ11hAwd-UwMMsKcA"
+                  src="/5.jpeg"
                   alt="High-end painting tools"
                   fill
                   className="object-cover"
@@ -116,7 +116,7 @@ export default function ServicesPage() {
                   </span>
                 </div>
                 <p className="text-[10px] text-on-surface-variant font-medium leading-tight">
-                  Setting the gold standard in premium finishes for 45+ years.
+                  Setting the gold standard in premium finishes since 2024.
                 </p>
               </div>
             </div>
@@ -233,7 +233,7 @@ export default function ServicesPage() {
                 <div className="order-1 md:order-2">
                   <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl relative group magnetic-hover">
                     <Image
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuIFSuyrkyz9nRmEzW-wTXVZDGkj7jmpFwpyJT-Wfs-fCu6hoNJXOk0Yco8aFMY41ySFxMVLZEjedUpyBSaCMkEz0ZmwhuGOQyo7I9x5DOwBCd3v9EVARu556PFfnaobrldzppNuA_KKyM99Y_ynEOlYP2NGHySBtTJDpkgMeG2HTmDEXLpLYxw7WYJU_-XeA7tnYtcQNP6wTcYWEqm3C-rzZ6qhvPfYcb_ecB9aJjY7zsSWYCDBh5LNQlLljcybdvf-0FddxHVUk"
+                      src="/1.jpeg"
                       alt="Luxury living room"
                       fill
                       className="object-cover transition-transform duration-1000 group-hover:scale-110"
@@ -253,7 +253,7 @@ export default function ServicesPage() {
                   <div className="lg:col-span-5">
                     <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl ring-[12px] ring-white/50 group-hover:ring-white transition-all duration-500 relative">
                       <Image
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqv1LHQyIwmcAoWdrFdEslydOm5kUhNK8bYN00Hu2x1UpC90PEJ6Ve0ndmgVfCZKCJMdtgvBISgRBAEKh5SYp2oasiJfuZK0g1jOLiREJ8241uW8ZqCfHrOBRhUP5eSzXExRgq-hpBwBX35lH8i-n3cS5vSe2LggU3RMoCPV7w4WuUJXkvdbUveucSCAQZchMEJDQ2e0KPmdMJ2x68Uesc9PyCjFrQW7I2qIWH-N5RgEsFOj5Yh9hvz9BV7EJHt8EaTOJ2k69fMl4"
+                        src="/2.jpeg"
                         alt="Office lobby"
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -414,7 +414,7 @@ export default function ServicesPage() {
                 {/* Right: image */}
                 <div className="relative h-full min-h-[500px] overflow-hidden group">
                   <Image
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwhwpC8X9rB6-EAEOPwc8TcX9ffRNLyNSbOIYzIP-srvET6Z7AMnUP0XCvhInAH3sdHksPFOu_4ip2xF_m5Dkl3sViCDO0KzlVTjX6xbeW3Px40gi2085-IP5WZusXKn5DbmrjNn8UkWhzZYRmTji3te8ZhgcCe1kcJeCuj1CYzFa692x50fMueFETfO03K3kof-r95m8TEQdPvfWUecj8NgSXrFbbbK1Dc6yFJj-W1TVarT15QtJgKdjsMZKsL5TwV0Qz2Y_7lR8"
+                    src="/4(1).jpeg"
                     alt="Industrial floor"
                     fill
                     className="object-cover transition-transform duration-[2000ms] group-hover:scale-110"

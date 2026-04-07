@@ -16,8 +16,8 @@ export default function HomePage() {
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-gradient-to-r from-white via-white/40 to-transparent z-10" />
             <Image
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtvGNQ7WLP06WE9btGltAvhJ1n4f-ZiUDhLfAbE7XKuyCpSFVs6E1RU_iAlKdwVaHeh-Ce2l5W4_VVCL6SnJwc-aNw7WLXUbwrOMczi9j4yt1rxzohyaB2GswzU7Hq-Xy2gOibkOstEZ_3_e2kjlficxGAXjE-x_foRbZx7cIHAkKHObXDxow2h1jThZY4cYmsmCPIhyTTAf6_cVdNpORvD7rqYYMRh1YOfgK4Vt-VPRi2LdoEuxZGuy-H6HteOZd13XjvWKF9G24"
-              alt="Cinematic close-up of a master painter"
+              src="/8.jpeg"
+              alt="Elite Finish painting project detail"
               fill
               className="object-cover"
               priority
@@ -27,7 +27,7 @@ export default function HomePage() {
             <div className="max-w-3xl">
               <span className="inline-flex items-center gap-2 bg-navy/5 text-navy border border-navy/10 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-8">
                 <span className="w-2 h-2 rounded-full bg-vibrant-accent animate-pulse" />
-                Excellence Since 1979
+                Excellence Since 2024
               </span>
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-navy leading-[1.05] mb-8 tracking-tight">
                 Masterstroke <br />
@@ -37,14 +37,14 @@ export default function HomePage() {
               </h1>
               <p className="text-on-surface/70 text-lg md:text-xl mb-12 max-w-xl leading-relaxed font-medium">
                 Elevating Geelong&apos;s architectural landscape through precision
-                engineering, legacy craftsmanship, and contemporary finishes.
+                planning, experienced workmanship, and contemporary finishes.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
                   href="/contact"
                   className="bg-vibrant-accent text-white px-10 py-5 rounded-xl font-bold text-base hover:shadow-2xl hover:shadow-vibrant-accent/30 transition-all transform hover:-translate-y-1"
                 >
-                  Request a Consult
+                  Request for Quote
                 </Link>
                 <Link
                   href="/portfolio"
@@ -117,7 +117,7 @@ export default function HomePage() {
               {/* Residential — large card */}
               <div className="md:col-span-8 group relative overflow-hidden h-[600px] rounded-2xl bg-surface-variant">
                 <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUuc3BvHUkTOK-TyHSBNNd7tBgSrFPS6KHMzoLPdXJ10cpbLeKge7qxElTTjxuMbq7FmMY5YWBYcV0VvBC6x8WMNzSi7lTAtuDTUNyr0yBcnbiiIn1Vxftp-7ESjkmcZRYKTRlAYCb7jHdOBxnMPgpeyXNJGNtPd4lqGOBRFEkFgbmiwKi3uRhEba5i1JbEbO_cDpQaeOwo9KJ9FWn33X_z9zLuKWK6fu4WQDjZ8cyFY9sLA0CPngefzvUVp26WKXDtDJrGk0yJqA"
+                  src="/1.jpeg"
                   alt="Luxury modern interior"
                   fill
                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
@@ -139,7 +139,7 @@ export default function HomePage() {
               {/* Specialty — small card */}
               <div className="md:col-span-4 group relative overflow-hidden h-[600px] rounded-2xl bg-surface-variant">
                 <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLUtibUfQq5otrfdGqz9s9yQu4BUcowgx1fY9bIftIjrDbptATZAaS7AqaoXWp0Eqe_yAfF_iHktMF4TMpDVngFEiIrVycAzaui7Hpo21A-gIJKK1CyRASZfQWFSUOORf9nGbKGVIP5W-V_pJBuVTuwG0FplGkH8DWSMQgQ86-pAzkcUCWjCIFapmRnSllVWRC0LRwogr2H26087yj2hB-ctnih30Xp3xKtCtTGu2JisJu3rXYsyzGevniu0ctsd3qZ-ugNcWJ3QE"
+                  src="/3.jpeg"
                   alt="Decorative Venetian plaster"
                   fill
                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
@@ -159,7 +159,7 @@ export default function HomePage() {
               {/* Commercial */}
               <div className="md:col-span-6 group relative overflow-hidden h-[500px] rounded-2xl bg-surface-variant">
                 <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBepp8N0YNp1_P2x9qWQIyuM-Dv7OmEhozLiya5dJOQKv7eWJ2ynx_OaXxdDThWp8bV5cejv52W3jGyVsAUjz3RNv_5sa0kHI51uOTMdhCAt9NykqBp78HkniULBwQjB7blW5P-QiCoAH9BKdxW_NDq7bA0z9o1YFtxm33m57ljsEUmU8S6Q147yn1inHFIL8vmcJ4mJhhNo-VwM5n_YMNibRAOtx81Fq5DD6Paf0qAyoccppZUflaNSMWllgcI9wnY15MQaq1Yyz0"
+                  src="/2.jpeg"
                   alt="Modern corporate office lobby"
                   fill
                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
@@ -179,7 +179,7 @@ export default function HomePage() {
               {/* Industrial */}
               <div className="md:col-span-6 group relative overflow-hidden h-[500px] rounded-2xl bg-surface-variant">
                 <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLSedNYbzPxFCYnu3oRzPdsK_uZLV4WMIcO_SCC8B3frMsSCNLrLGiQEWw6aFkl8BN5v4zWBrRS5PPt_rCPPewSt9y-jJ4RchyoFgVuwzEbQEX3fe-gcpi8lQ9XP_ChUPPV-p95ZnUDBkh5TwAxdcbKEAqFl2i0AmY5N9lxdmGR4jyTzhj-k6zw8c1LxQ7Jx80dBRy8hSmlga-VOZ_QeyBGBhV8pq-12Q5M-gMKIOYqAv-WtdWH5ygB_VutfrOoRT8HCHl6F0zOaE"
+                  src="/4(1).jpeg"
                   alt="Industrial warehouse epoxy floor"
                   fill
                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
@@ -206,34 +206,34 @@ export default function HomePage() {
               {/* Left: copy */}
               <div className="relative">
                 <div className="absolute -top-16 -left-12 text-[12rem] font-extrabold text-navy/5 leading-none select-none">
-                  45
+                  2024
                 </div>
                 <div className="relative z-10 pt-10">
                   <h2 className="text-5xl md:text-6xl font-extrabold text-navy mb-8 leading-tight tracking-tight">
-                    A Legacy of <br />
+                    Formed by <br />
                     <span className="text-vibrant-accent">Expertise.</span>
                   </h2>
                   <div className="space-y-12">
                     <div className="flex gap-8 items-start">
-                      <div className="text-5xl font-extrabold text-teal-accent">45+</div>
+                      <div className="text-5xl font-extrabold text-teal-accent">10+</div>
                       <div>
                         <h4 className="font-bold text-xl text-navy mb-2">
                           Years Combined Experience
                         </h4>
                         <p className="text-on-surface/60 font-medium leading-relaxed">
-                          Spanning two generations of master craftsmen in the Geelong region, we
-                          bring a level of knowledge that cannot be taught—only earned through
-                          decades of practice.
+                          Experienced painting professionals joined together in 2024 to bring
+                          disciplined preparation, premium products, and reliable project delivery
+                          to Geelong homes and businesses.
                         </p>
                       </div>
                     </div>
                     <div className="flex gap-8 items-start">
-                      <div className="text-5xl font-extrabold text-teal-accent">1.2k</div>
+                      <div className="text-5xl font-extrabold text-teal-accent">Local</div>
                       <div>
-                        <h4 className="font-bold text-xl text-navy mb-2">Projects Completed</h4>
+                        <h4 className="font-bold text-xl text-navy mb-2">Geelong Focus</h4>
                         <p className="text-on-surface/60 font-medium leading-relaxed">
-                          From heritage cottages in Battery Point to state-of-the-art industrial
-                          facilities, our portfolio is a testament to Geelong&apos;s growth.
+                          From family homes to commercial spaces, our work is focused on Highton,
+                          Grovedale, Geelong City, and the wider Greater Geelong region.
                         </p>
                       </div>
                     </div>
@@ -246,18 +246,18 @@ export default function HomePage() {
                 <div className="absolute inset-0 border-4 border-vibrant-accent/20 translate-x-6 translate-y-6 rounded-2xl" />
                 <div className="relative z-10 w-full h-full rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO8Y865uJL8M_M6jzYG0IItCKeYllj_O8KBiu3lJbjCGfzDeQrKuLCtls6_UDym0mKin2n8XUDwZOUuprrb9m4Qvde0xEeaJMR-s2VXMBVsMFbsRCOyErnFZ51sXoUJFa5wcjywZDP5eyuFuh0CO6K1YESTvqPnO_IyvioTFFhzpFERNTMg1AhdHhBPobtUjXDQv5S7Ejc2rIHfOZq1s76-MoIOYkNUwMhN2nHUrfz5YbAgelHyu_N7cBwyCw0AVrGOXm1trWuXH0"
-                    alt="Master painter portrait"
+                    src="/5.jpeg"
+                    alt="Elite Finish team workmanship"
                     fill
                     className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
                   />
                 </div>
                 <div className="absolute bottom-8 right-8 z-20 glass-card p-8 rounded-xl border border-white/20 shadow-2xl max-w-xs">
                   <p className="font-medium text-navy text-xl italic mb-4 leading-relaxed">
-                    &ldquo;Quality is not an act, it is a habit.&rdquo;
+                    &ldquo;Quality starts with the people on site.&rdquo;
                   </p>
                   <p className="font-bold text-xs uppercase tracking-widest text-vibrant-accent">
-                    — Lead Craftsman
+                    — Elite Finish Team
                   </p>
                 </div>
               </div>
@@ -280,25 +280,43 @@ export default function HomePage() {
               {[
                 {
                   quote:
-                    "Their attention to detail on our heritage restoration was unmatched. They respected the history while providing a modern, durable finish.",
-                  name: "Julian Sterling",
-                  role: "Residential Client, Sandy Bay",
+                    "The repaint was organised, tidy, and finished with sharp lines throughout the home. The team kept us informed from prep through to handover.",
+                  name: "Residential Client",
+                  role: "Highton",
                 },
                 {
                   quote:
-                    "Professionalism at its peak. The commercial project was completed ahead of schedule with zero compromise on the quality of the finish.",
-                  name: "Sarah Chen",
-                  role: "Project Manager, Geelong CBD",
+                    "Our commercial repaint was completed with minimal disruption to trading. The finish looks clean, durable, and professional.",
+                  name: "Business Owner",
+                  role: "Geelong City",
                 },
                 {
                   quote:
-                    "The colour consultation process helped us see possibilities we hadn't considered. The result is transformative for our boutique hotel.",
-                  name: "Marcus Thorne",
-                  role: "Director, Heritage Heights",
+                    "They helped with colour selection and delivered exactly what was quoted. The exterior now looks fresh and well protected.",
+                  name: "Homeowner",
+                  role: "Grovedale",
+                },
+                {
+                  quote:
+                    "Preparation was handled properly before any paint went on. That attention to the early work made the final result stand out.",
+                  name: "Residential Client",
+                  role: "Geelong City",
+                },
+                {
+                  quote:
+                    "The crew worked around our schedule and left the site clean each day. Communication was clear and the finish was consistent.",
+                  name: "Property Manager",
+                  role: "Highton",
+                },
+                {
+                  quote:
+                    "Reliable, respectful, and detail-focused. The rooms feel brighter and the trims have a crisp finish.",
+                  name: "Homeowner",
+                  role: "Grovedale",
                 },
               ].map(({ quote, name, role }) => (
                 <div
-                  key={name}
+                  key={`${name}-${role}-${quote}`}
                   className="bg-surface-variant p-10 rounded-2xl border border-outline/10 flex flex-col justify-between hover:border-vibrant-accent/30 transition-all duration-500 hover:shadow-xl group"
                 >
                   <div>

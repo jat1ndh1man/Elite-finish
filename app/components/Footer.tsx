@@ -43,8 +43,8 @@ export default function Footer() {
                 Elite Finish Painting Service
               </p>
               <p className="text-sm text-white/55 leading-relaxed font-medium max-w-sm">
-              Crafting exceptional architectural spaces with professional
-              excellence for over 45 years. Master Painters Association
+              Crafting exceptional architectural spaces with a joined team of
+              experienced painting professionals. Master Painters Association
               Accredited.
               </p>
             </div>
