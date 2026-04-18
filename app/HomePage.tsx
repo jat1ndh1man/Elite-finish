@@ -4,6 +4,42 @@ import Image from "next/image";
 import Link from "next/link";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import { siteConfig } from "./siteConfig";
+
+const PROJECT_GALLERY = [
+  {
+    src: "/internet-exterior-1.jpg",
+    alt: "Freshly finished modern home exterior",
+    eyebrow: "Exterior Renewal",
+    title: "Street-facing finishes that hold their tone and sharpness.",
+    description:
+      "Careful preparation, weather-aware scheduling, and premium exterior systems create durable first impressions for Geelong homes.",
+  },
+  {
+    src: "/internet-interior-1.jpg",
+    alt: "Light-filled interior room with refined wall finishes",
+    eyebrow: "Interior Refinement",
+    title: "Clean interior colour work that changes how a room feels.",
+    description:
+      "From bright family spaces to quiet retreat rooms, we align colour, light, and surface quality to lift the entire interior.",
+  },
+  {
+    src: "/internet-kitchen-1.jpg",
+    alt: "Contemporary kitchen with crisp painted walls and trim",
+    eyebrow: "High-use Living",
+    title: "Kitchens, living zones, and circulation spaces finished for everyday use.",
+    description:
+      "These high-traffic areas need crisp cut lines, washable coatings, and a finish that still feels tailored rather than purely utilitarian.",
+  },
+  {
+    src: "/internet-home-1.jpg",
+    alt: "Curated residential exterior with architectural details",
+    eyebrow: "Architectural Detail",
+    title: "A stronger visual identity built through trim, texture, and contrast.",
+    description:
+      "We use restrained palettes and disciplined detailing to give facades depth, rhythm, and a more premium presence from the street.",
+  },
+] as const;
 
 export default function HomePage() {
   return (
@@ -58,7 +94,7 @@ export default function HomePage() {
         </section>
 
         {/* Accreditation Ticker */}
-        <section className="bg-surface-variant py-8 border-y border-outline/50">
+        {/* <section className="bg-surface-variant py-8 border-y border-outline/50">
           <div className="max-w-screen-2xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-8 opacity-80">
             <div className="flex items-center gap-4">
               <span className="material-symbols-outlined text-teal-accent text-4xl">verified</span>
@@ -89,7 +125,7 @@ export default function HomePage() {
               <span className="font-bold text-sm text-navy">4.9/5 Google Rating</span>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Services Section */}
         <section className="py-32 bg-white">
@@ -179,8 +215,8 @@ export default function HomePage() {
               {/* Industrial */}
               <div className="md:col-span-6 group relative overflow-hidden h-[500px] rounded-2xl bg-surface-variant">
                 <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwhwpC8X9rB6-EAEOPwc8TcX9ffRNLyNSbOIYzIP-srvET6Z7AMnUP0XCvhInAH3sdHksPFOu_4ip2xF_m5Dkl3sViCDO0KzlVTjX6xbeW3Px40gi2085-IP5WZusXKn5DbmrjNn8UkWhzZYRmTji3te8ZhgcCe1kcJeCuj1CYzFa692x50fMueFETfO03K3kof-r95m8TEQdPvfWUecj8NgSXrFbbbK1Dc6yFJj-W1TVarT15QtJgKdjsMZKsL5TwV0Qz2Y_7lR8"
-                  alt="Industrial warehouse epoxy floor"
+                  src="/internet-home-1.jpg"
+                  alt="Modern residential exterior finish"
                   fill
                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
@@ -195,6 +231,56 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Visual Gallery */}
+        <section className="bg-[#f5f7fb] py-32">
+          <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+            <div className="mb-20 max-w-3xl">
+              <span className="mb-5 block text-xs font-bold uppercase tracking-[0.35em] text-teal-accent">
+                Visual Direction
+              </span>
+              <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-navy md:text-6xl">
+                More spaces, more finish detail, more proof in the visuals.
+              </h2>
+              <p className="text-lg font-medium leading-relaxed text-on-surface/65">
+                We expanded the homepage with additional residential imagery to show
+                the type of rooms, facades, and design outcomes our work supports.
+                The focus stays on clarity, durability, and a polished architectural feel.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {PROJECT_GALLERY.map(({ src, alt, eyebrow, title, description }) => (
+                <article
+                  key={src}
+                  className="group overflow-hidden rounded-[2rem] border border-outline/60 bg-white shadow-[0_24px_60px_-24px_rgba(20,43,88,0.22)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_32px_70px_-24px_rgba(20,43,88,0.28)]"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={src}
+                      alt={alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy/45 via-transparent to-transparent" />
+                  </div>
+                  <div className="space-y-4 p-8">
+                    <span className="block text-[10px] font-bold uppercase tracking-[0.25em] text-vibrant-accent">
+                      {eyebrow}
+                    </span>
+                    <h3 className="max-w-xl text-2xl font-extrabold leading-tight text-navy">
+                      {title}
+                    </h3>
+                    <p className="max-w-2xl text-base font-medium leading-relaxed text-on-surface/65">
+                      {description}
+                    </p>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -249,7 +335,7 @@ export default function HomePage() {
                     src="/5.jpeg"
                     alt="Elite Finish team workmanship"
                     fill
-                    className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                    className="object-cover duration-700"
                   />
                 </div>
                 <div className="absolute bottom-8 right-8 z-20 glass-card p-8 rounded-xl border border-white/20 shadow-2xl max-w-xs">
@@ -348,18 +434,43 @@ export default function HomePage() {
         </section>
       </main>
 
-      <Footer />
+      <div className="fixed right-5 bottom-5 z-[60] flex flex-col gap-3 md:hidden">
+        <Link
+          href={siteConfig.whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Message Elite Finish on WhatsApp"
+          className="group flex items-center justify-end gap-3"
+        >
+          <span className="pointer-events-none translate-x-2 rounded-lg bg-navy px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white opacity-0 shadow-xl transition-all group-hover:translate-x-0 group-hover:opacity-100">
+            WhatsApp
+          </span>
+          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl shadow-[#25D366]/30 transition-all group-hover:-translate-y-1 group-hover:scale-105">
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 32 32"
+              className="h-7 w-7 fill-current"
+            >
+              <path d="M16.04 3.2c-7.06 0-12.8 5.7-12.8 12.73 0 2.25.6 4.45 1.72 6.38L3.13 29l6.87-1.8a12.9 12.9 0 0 0 6.04 1.53c7.05 0 12.8-5.7 12.8-12.73 0-3.4-1.34-6.6-3.75-9.02A12.73 12.73 0 0 0 16.04 3.2Zm0 23.37c-1.9 0-3.77-.5-5.4-1.44l-.4-.23-4.08 1.07 1.09-3.96-.26-.41a10.5 10.5 0 0 1-1.6-5.67c0-5.83 4.78-10.57 10.65-10.57 2.85 0 5.52 1.1 7.53 3.1a10.5 10.5 0 0 1 3.12 7.54c0 5.83-4.78 10.57-10.65 10.57Zm5.84-7.9c-.32-.16-1.9-.93-2.2-1.04-.3-.1-.51-.16-.73.16-.21.32-.84 1.04-1.03 1.25-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.95-.85-1.6-1.9-1.78-2.22-.19-.32-.02-.5.14-.65.15-.14.32-.38.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.72-1.73-.99-2.37-.26-.62-.53-.54-.72-.55h-.62c-.21 0-.56.08-.86.4-.3.32-1.13 1.1-1.13 2.68s1.16 3.1 1.32 3.32c.16.21 2.29 3.48 5.55 4.88.78.34 1.38.54 1.85.69.78.25 1.48.21 2.04.13.62-.09 1.9-.77 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.3-.21-.62-.37Z" />
+            </svg>
+          </span>
+        </Link>
 
-      {/* Floating Contact FAB */}
-      <Link
-        href="/contact"
-        className="fixed bottom-8 right-8 z-[60] w-16 h-16 bg-vibrant-accent text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform group relative"
-      >
-        <span className="material-symbols-outlined text-3xl">chat_bubble</span>
-        <span className="absolute right-20 bg-navy text-white px-4 py-2 text-xs font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-          Inquire Now
-        </span>
-      </Link>
+        <Link
+          href={siteConfig.phoneHref}
+          aria-label={`Call Elite Finish at ${siteConfig.phoneDisplay}`}
+          className="group flex items-center justify-end gap-3"
+        >
+          <span className="pointer-events-none translate-x-2 rounded-lg bg-navy px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white opacity-0 shadow-xl transition-all group-hover:translate-x-0 group-hover:opacity-100">
+            Call Now
+          </span>
+          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-navy text-white shadow-2xl shadow-navy/25 transition-all group-hover:-translate-y-1 group-hover:scale-105 group-hover:bg-vibrant-accent">
+            <span className="material-symbols-outlined text-[28px]">call</span>
+          </span>
+        </Link>
+      </div>
+
+      <Footer />
     </div>
   );
 }

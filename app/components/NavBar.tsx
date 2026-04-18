@@ -13,6 +13,36 @@ const NAV_LINKS = [
   { label: "Contact", href: "/contact" },
 ];
 
+function CallButton({
+  className = "",
+  onClick,
+}: {
+  className?: string;
+  onClick?: () => void;
+}) {
+  return (
+    <Link
+      href={siteConfig.phoneHref}
+      onClick={onClick}
+      aria-label={`Call now on ${siteConfig.phoneDisplay}`}
+      className={`call-cta group relative overflow-hidden rounded-full border border-vibrant-accent/30 bg-white/90 px-4 py-2.5 text-navy shadow-[0_12px_30px_rgba(20,43,88,0.08)] transition-all duration-300 hover:-translate-y-1 hover:border-vibrant-accent hover:bg-vibrant-accent hover:text-navy hover:shadow-[0_18px_36px_rgba(245,166,35,0.28)] ${className}`}
+    >
+      <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/70 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+      <span className="relative flex items-center gap-3">
+        <span className="call-cta-icon flex h-9 w-9 items-center justify-center rounded-full bg-vibrant-accent text-navy transition-colors duration-300 group-hover:bg-navy group-hover:text-white">
+          <span className="material-symbols-outlined text-[18px]">call</span>
+        </span>
+        <span className="flex flex-col items-start leading-none">
+          <span className="text-label text-[9px] tracking-[0.22em]">Call Now</span>
+          <span className="mt-1 text-sm font-extrabold tracking-[0.08em]">
+            {siteConfig.phoneDisplay}
+          </span>
+        </span>
+      </span>
+    </Link>
+  );
+}
+
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -81,6 +111,8 @@ export default function NavBar() {
 
         {/* CTA + mobile toggle */}
         <div className="flex items-center gap-4">
+          <CallButton className="hidden sm:flex" />
+
           <Link
             href="/contact"
             className="bg-navy text-white px-8 py-3 rounded-full text-[11px] font-bold tracking-widest uppercase hover:bg-navy/90 hover:shadow-[0_10px_20px_rgba(20,43,88,0.2)] hover:-translate-y-1 active:translate-y-0 transition-all duration-300 group hidden sm:flex items-center gap-2"
@@ -138,6 +170,10 @@ export default function NavBar() {
           >
             Request Quote
           </Link>
+          <CallButton
+            onClick={() => setMenuOpen(false)}
+            className="justify-center"
+          />
         </div>
       )}
     </nav>
