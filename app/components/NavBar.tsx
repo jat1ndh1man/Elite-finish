@@ -134,6 +134,17 @@ export default function NavBar() {
             </span>
           </Link>
 
+          <Link
+            href="/paint-calculator"
+            className={`md:hidden rounded-full border px-4 py-2 text-[10px] font-bold tracking-[0.16em] uppercase transition-all duration-300 ${
+              pathname === "/paint-calculator"
+                ? "border-vibrant-accent bg-vibrant-accent text-navy shadow-[0_12px_24px_rgba(245,166,35,0.24)]"
+                : "border-navy/12 bg-white/85 text-navy hover:border-vibrant-accent hover:bg-vibrant-accent"
+            }`}
+          >
+            Calculator
+          </Link>
+
           {/* Mobile hamburger */}
           <button
             className="md:hidden flex flex-col gap-1.5 p-2"
