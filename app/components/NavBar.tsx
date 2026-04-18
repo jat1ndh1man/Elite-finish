@@ -107,6 +107,17 @@ export default function NavBar() {
               </Link>
             );
           })}
+
+          <Link
+            href="/paint-calculator"
+            className={`rounded-full border px-5 py-2.5 text-[10px] font-bold tracking-[0.16em] uppercase transition-all duration-300 ${
+              pathname === "/paint-calculator"
+                ? "border-vibrant-accent bg-vibrant-accent text-navy shadow-[0_14px_30px_rgba(245,166,35,0.28)]"
+                : "border-navy/12 bg-white/80 text-navy hover:-translate-y-0.5 hover:border-vibrant-accent hover:bg-vibrant-accent hover:text-navy hover:shadow-[0_14px_30px_rgba(245,166,35,0.22)]"
+            }`}
+          >
+            Cost Calculator
+          </Link>
         </div>
 
         {/* CTA + mobile toggle */}
@@ -163,6 +174,17 @@ export default function NavBar() {
               {label}
             </Link>
           ))}
+          <Link
+            href="/paint-calculator"
+            onClick={() => setMenuOpen(false)}
+            className={`rounded-full border px-6 py-3 text-center text-[11px] font-bold tracking-widest uppercase transition-all ${
+              pathname === "/paint-calculator"
+                ? "border-vibrant-accent bg-vibrant-accent text-navy"
+                : "border-outline bg-surface-variant text-navy"
+            }`}
+          >
+            Paint Calculator
+          </Link>
           <Link
             href="/contact"
             onClick={() => setMenuOpen(false)}

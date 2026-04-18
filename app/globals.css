@@ -125,3 +125,22 @@ h1, h2, h3 {
 .call-cta-icon {
   animation: var(--animate-call-pulse);
 }
+
+.calculator-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1px solid rgba(20, 43, 88, 0.08);
+  box-shadow: 0 10px 25px rgba(20, 43, 88, 0.18);
+}
+
+.calculator-range::-moz-range-thumb {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1px solid rgba(20, 43, 88, 0.08);
+  box-shadow: 0 10px 25px rgba(20, 43, 88, 0.18);
+}
