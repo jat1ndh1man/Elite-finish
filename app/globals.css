@@ -60,18 +60,20 @@
 }
 
 /* Base styles — fixed light for this brand */
-body {
-  background-color: #ffffff;
-  color: #1E293B;
-  font-family: var(--font-manrope, Arial, Helvetica, sans-serif);
-  overflow-x: hidden;
-}
+@layer base {
+  body {
+    background-color: #ffffff;
+    color: #1E293B;
+    font-family: var(--font-manrope, Arial, Helvetica, sans-serif);
+    overflow-x: hidden;
+  }
 
-h1, h2, h3 {
-  font-family: var(--font-manrope, Arial, Helvetica, sans-serif);
-  font-weight: 800;
-  color: #142B58;
-  letter-spacing: -0.02em;
+  h1, h2, h3 {
+    font-family: var(--font-manrope, Arial, Helvetica, sans-serif);
+    font-weight: 800;
+    color: #142B58;
+    letter-spacing: -0.02em;
+  }
 }
 
 /* Custom utility classes */
