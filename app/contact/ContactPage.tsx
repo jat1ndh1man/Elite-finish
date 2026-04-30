@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { type FormEvent, useState } from "react";
 import NavBar from "../components/NavBar";
@@ -32,6 +31,7 @@ const CONTACT_METHODS = [
 ];
 
 const SERVICE_REGIONS = siteConfig.serviceRegions;
+const MAP_EMBED_SRC = `https://www.google.com/maps?q=${encodeURIComponent(siteConfig.addressSingleLine)}&z=15&output=embed`;
 
 export default function ContactPage() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -342,23 +342,26 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="group relative overflow-hidden rounded-[2rem] border border-outline shadow-sm">
+            <div className="relative overflow-hidden rounded-[2rem] border border-outline bg-white shadow-sm">
               <div className="relative h-[420px] w-full">
-                <Image
-                  src="/4(2).jpeg"
-                  alt="Elite Finish service area project in Greater Geelong"
-                  fill
-                  className="object-cover grayscale transition-all duration-1000 group-hover:grayscale-0"
-                  sizes="100vw"
+                <iframe
+                  title="Elite Finish studio location map"
+                  src={MAP_EMBED_SRC}
+                  className="h-full w-full"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
                 />
-                <div className="absolute inset-0 bg-navy/5" />
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <div className="relative flex items-center justify-center">
-                    <div className="absolute h-12 w-12 animate-ping rounded-full bg-vibrant-accent/20" />
-                    <div className="relative z-10 h-4 w-4 rounded-full border-2 border-white bg-vibrant-accent shadow-lg" />
-                    <div className="absolute top-full mt-3 whitespace-nowrap rounded-lg border border-outline bg-white px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.15em] text-navy shadow-xl">
+                <div className="pointer-events-none absolute inset-x-6 bottom-6 flex justify-start">
+                  <div className="max-w-sm rounded-2xl border border-outline bg-white/95 p-5 shadow-xl backdrop-blur">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-accent">
                       Bell Post Hill Studio
-                    </div>
+                    </p>
+                    <p className="mt-2 text-lg font-extrabold text-navy">
+                      {siteConfig.addressLine1}
+                    </p>
+                    <p className="text-sm text-on-surface-variant">
+                      {siteConfig.addressLine2}
+                    </p>
                   </div>
                 </div>
               </div>
