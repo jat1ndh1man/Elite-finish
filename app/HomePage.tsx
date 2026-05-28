@@ -1,10 +1,40 @@
 "use client";
 
+import { startTransition, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import { siteConfig } from "./siteConfig";
+
+const FIRST_VISIT_MODAL_KEY = "elite-finish-home-help-modal-seen";
+
+const HOME_HELP_OPTIONS = [
+  {
+    href: "/contact",
+    label: "Contact Us",
+    title: "Speak with the team",
+    description: "Ask a question, share your project details, or request a callback.",
+  },
+  {
+    href: "/contact",
+    label: "Get Estimate",
+    title: "Request a quote",
+    description: "Send your project scope and we will prepare the next steps.",
+  },
+  {
+    href: "/portfolio",
+    label: "Portfolio",
+    title: "See recent work",
+    description: "Review completed painting projects and finish quality.",
+  },
+  {
+    href: "/about",
+    label: "About Us",
+    title: "Learn about Elite Finish",
+    description: "Read about the team, experience, and local service focus.",
+  },
+] as const;
 
 const PROJECT_GALLERY = [
   {
@@ -42,8 +72,128 @@ const PROJECT_GALLERY = [
 ] as const;
 
 export default function HomePage() {
+  const [showHelpModal, setShowHelpModal] = useState(false);
+
+  useEffect(() => {
+    try {
+      const hasSeenModal = window.localStorage.getItem(FIRST_VISIT_MODAL_KEY);
+
+      if (!hasSeenModal) {
+        window.localStorage.setItem(FIRST_VISIT_MODAL_KEY, "true");
+        startTransition(() => {
+          setShowHelpModal(true);
+        });
+      }
+    } catch {
+      startTransition(() => {
+        setShowHelpModal(true);
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!showHelpModal) {
+      document.body.style.removeProperty("overflow");
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.removeProperty("overflow");
+    };
+  }, [showHelpModal]);
+
   return (
     <div className="bg-black text-on-surface">
+      {showHelpModal ? (
+        <div className="fixed inset-0 z-[120] flex items-center justify-center px-3 py-3 sm:px-4 sm:py-8">
+          <button
+            type="button"
+            aria-label="Close help options"
+            className="absolute inset-0 bg-black/72 backdrop-blur-md"
+            onClick={() => setShowHelpModal(false)}
+          />
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="home-help-modal-title"
+            aria-describedby="home-help-modal-description"
+            className="relative z-10 flex max-h-[calc(100vh-1.5rem)] w-full max-w-5xl flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#050505] shadow-[0_32px_120px_rgba(0,0,0,0.6)] sm:max-h-[calc(100vh-4rem)] sm:rounded-[2rem]"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,128,128,0.22),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(245,166,35,0.18),transparent_28%)]" />
+            <div className="relative overflow-y-auto px-4 py-5 sm:px-6 sm:py-8 md:px-10 md:py-10">
+              <div className="mb-6 flex items-start justify-between gap-4 sm:mb-8 sm:gap-6">
+                <div className="max-w-2xl">
+                  <span className="mb-3 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.24em] text-vibrant-accent sm:tracking-[0.3em]">
+                    Welcome
+                  </span>
+                  <h2
+                    id="home-help-modal-title"
+                    className="pr-2 text-2xl font-extrabold tracking-tight text-white sm:text-3xl md:text-5xl"
+                  >
+                    How can we help you?
+                  </h2>
+                  <p
+                    id="home-help-modal-description"
+                    className="mt-3 max-w-xl text-sm font-medium leading-relaxed text-on-surface/65 sm:mt-4 md:text-base"
+                  >
+                    Choose the page that matches what you need and we will take you
+                    straight there.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  aria-label="Close welcome modal"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-colors hover:bg-white/10 sm:h-11 sm:w-11"
+                  onClick={() => setShowHelpModal(false)}
+                >
+                  <span className="material-symbols-outlined">close</span>
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                {HOME_HELP_OPTIONS.map(({ href, label, title, description }) => (
+                  <Link
+                    key={label}
+                    href={href}
+                    onClick={() => setShowHelpModal(false)}
+                    className="group rounded-[1.25rem] border border-white/10 bg-white/[0.03] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-vibrant-accent/40 hover:bg-white/[0.05] sm:rounded-[1.5rem] sm:p-6"
+                  >
+                    <span className="mb-3 inline-flex rounded-full border border-white/10 bg-black/40 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-teal-accent sm:mb-4 sm:tracking-[0.28em]">
+                      {label}
+                    </span>
+                    <h3 className="text-xl font-extrabold text-white sm:text-2xl">{title}</h3>
+                    <p className="mt-3 max-w-md text-sm font-medium leading-relaxed text-on-surface/65">
+                      {description}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-vibrant-accent sm:mt-6 sm:text-sm sm:tracking-[0.22em]">
+                      Open page
+                      <span className="material-symbols-outlined text-base transition-transform duration-300 group-hover:translate-x-1">
+                        arrow_forward
+                      </span>
+                    </span>
+                  </Link>
+                ))}
+              </div>
+
+              <div className="mt-6 flex flex-col gap-4 border-t border-white/10 pt-5 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:pt-6">
+                <p className="max-w-2xl text-[11px] font-bold uppercase tracking-[0.18em] text-on-surface/45 sm:text-xs sm:tracking-[0.24em]">
+                  This welcome prompt is shown once on the first home visit.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setShowHelpModal(false)}
+                  className="w-full rounded-full border border-white/12 bg-white/5 px-5 py-3 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white/10 sm:w-auto sm:tracking-[0.24em]"
+                >
+                  Continue Browsing
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
+
       <NavBar />
 
       <main>
