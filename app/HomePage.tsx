@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import { siteConfig } from "./siteConfig";
 
 const FIRST_VISIT_MODAL_KEY = "elite-finish-home-help-modal-seen";
 
@@ -107,7 +106,7 @@ export default function HomePage() {
   return (
     <div className="bg-black text-on-surface">
       {showHelpModal ? (
-        <div className="fixed inset-0 z-[120] flex items-center justify-center px-3 py-3 sm:px-4 sm:py-8">
+        <div className="fixed inset-0 z-[120] flex items-center justify-center px-4 py-8">
           <button
             type="button"
             aria-label="Close help options"
@@ -119,24 +118,24 @@ export default function HomePage() {
             aria-modal="true"
             aria-labelledby="home-help-modal-title"
             aria-describedby="home-help-modal-description"
-            className="relative z-10 flex max-h-[calc(100vh-1.5rem)] w-full max-w-5xl flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#050505] shadow-[0_32px_120px_rgba(0,0,0,0.6)] sm:max-h-[calc(100vh-4rem)] sm:rounded-[2rem]"
+            className="relative z-10 w-full max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-[#050505] shadow-[0_32px_120px_rgba(0,0,0,0.6)]"
           >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,128,128,0.22),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(245,166,35,0.18),transparent_28%)]" />
-            <div className="relative overflow-y-auto px-4 py-5 sm:px-6 sm:py-8 md:px-10 md:py-10">
-              <div className="mb-6 flex items-start justify-between gap-4 sm:mb-8 sm:gap-6">
+            <div className="relative px-6 py-8 md:px-10 md:py-10">
+              <div className="mb-8 flex items-start justify-between gap-6">
                 <div className="max-w-2xl">
-                  <span className="mb-3 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.24em] text-vibrant-accent sm:tracking-[0.3em]">
+                  <span className="mb-3 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.3em] text-vibrant-accent">
                     Welcome
                   </span>
                   <h2
                     id="home-help-modal-title"
-                    className="pr-2 text-2xl font-extrabold tracking-tight text-white sm:text-3xl md:text-5xl"
+                    className="text-3xl font-extrabold tracking-tight text-white md:text-5xl"
                   >
                     How can we help you?
                   </h2>
                   <p
                     id="home-help-modal-description"
-                    className="mt-3 max-w-xl text-sm font-medium leading-relaxed text-on-surface/65 sm:mt-4 md:text-base"
+                    className="mt-4 max-w-xl text-sm font-medium leading-relaxed text-on-surface/65 md:text-base"
                   >
                     Choose the page that matches what you need and we will take you
                     straight there.
@@ -145,7 +144,7 @@ export default function HomePage() {
                 <button
                   type="button"
                   aria-label="Close welcome modal"
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-colors hover:bg-white/10 sm:h-11 sm:w-11"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-colors hover:bg-white/10"
                   onClick={() => setShowHelpModal(false)}
                 >
                   <span className="material-symbols-outlined">close</span>
@@ -158,16 +157,16 @@ export default function HomePage() {
                     key={label}
                     href={href}
                     onClick={() => setShowHelpModal(false)}
-                    className="group rounded-[1.25rem] border border-white/10 bg-white/[0.03] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-vibrant-accent/40 hover:bg-white/[0.05] sm:rounded-[1.5rem] sm:p-6"
+                    className="group rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-vibrant-accent/40 hover:bg-white/[0.05]"
                   >
-                    <span className="mb-3 inline-flex rounded-full border border-white/10 bg-black/40 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-teal-accent sm:mb-4 sm:tracking-[0.28em]">
+                    <span className="mb-4 inline-flex rounded-full border border-white/10 bg-black/40 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.28em] text-teal-accent">
                       {label}
                     </span>
-                    <h3 className="text-xl font-extrabold text-white sm:text-2xl">{title}</h3>
+                    <h3 className="text-2xl font-extrabold text-white">{title}</h3>
                     <p className="mt-3 max-w-md text-sm font-medium leading-relaxed text-on-surface/65">
                       {description}
                     </p>
-                    <span className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-vibrant-accent sm:mt-6 sm:text-sm sm:tracking-[0.22em]">
+                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.22em] text-vibrant-accent">
                       Open page
                       <span className="material-symbols-outlined text-base transition-transform duration-300 group-hover:translate-x-1">
                         arrow_forward
@@ -177,14 +176,14 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <div className="mt-6 flex flex-col gap-4 border-t border-white/10 pt-5 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:pt-6">
-                <p className="max-w-2xl text-[11px] font-bold uppercase tracking-[0.18em] text-on-surface/45 sm:text-xs sm:tracking-[0.24em]">
+              <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6">
+                <p className="text-xs font-bold uppercase tracking-[0.24em] text-on-surface/45">
                   This welcome prompt is shown once on the first home visit.
                 </p>
                 <button
                   type="button"
                   onClick={() => setShowHelpModal(false)}
-                  className="w-full rounded-full border border-white/12 bg-white/5 px-5 py-3 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white/10 sm:w-auto sm:tracking-[0.24em]"
+                  className="rounded-full border border-white/12 bg-white/5 px-5 py-3 text-xs font-bold uppercase tracking-[0.24em] text-white transition-colors hover:bg-white/10"
                 >
                   Continue Browsing
                 </button>
@@ -583,43 +582,6 @@ export default function HomePage() {
           </div>
         </section>
       </main>
-
-      <div className="fixed right-5 bottom-5 z-[60] flex flex-col gap-3 md:hidden">
-        <Link
-          href={siteConfig.whatsappHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Message Elite Finish on WhatsApp"
-          className="group flex items-center justify-end gap-3"
-        >
-          <span className="pointer-events-none translate-x-2 rounded-lg bg-navy px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white opacity-0 shadow-xl transition-all group-hover:translate-x-0 group-hover:opacity-100">
-            WhatsApp
-          </span>
-          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl shadow-[#25D366]/30 transition-all group-hover:-translate-y-1 group-hover:scale-105">
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 32 32"
-              className="h-7 w-7 fill-current"
-            >
-              <path d="M16.04 3.2c-7.06 0-12.8 5.7-12.8 12.73 0 2.25.6 4.45 1.72 6.38L3.13 29l6.87-1.8a12.9 12.9 0 0 0 6.04 1.53c7.05 0 12.8-5.7 12.8-12.73 0-3.4-1.34-6.6-3.75-9.02A12.73 12.73 0 0 0 16.04 3.2Zm0 23.37c-1.9 0-3.77-.5-5.4-1.44l-.4-.23-4.08 1.07 1.09-3.96-.26-.41a10.5 10.5 0 0 1-1.6-5.67c0-5.83 4.78-10.57 10.65-10.57 2.85 0 5.52 1.1 7.53 3.1a10.5 10.5 0 0 1 3.12 7.54c0 5.83-4.78 10.57-10.65 10.57Zm5.84-7.9c-.32-.16-1.9-.93-2.2-1.04-.3-.1-.51-.16-.73.16-.21.32-.84 1.04-1.03 1.25-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.95-.85-1.6-1.9-1.78-2.22-.19-.32-.02-.5.14-.65.15-.14.32-.38.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.72-1.73-.99-2.37-.26-.62-.53-.54-.72-.55h-.62c-.21 0-.56.08-.86.4-.3.32-1.13 1.1-1.13 2.68s1.16 3.1 1.32 3.32c.16.21 2.29 3.48 5.55 4.88.78.34 1.38.54 1.85.69.78.25 1.48.21 2.04.13.62-.09 1.9-.77 2.17-1.52.27-.75.27-1.39.19-1.52-.08-.13-.3-.21-.62-.37Z" />
-            </svg>
-          </span>
-        </Link>
-
-        <Link
-          href={siteConfig.phoneHref}
-          aria-label={`Call Elite Finish at ${siteConfig.phoneDisplay}`}
-          className="group flex items-center justify-end gap-3"
-        >
-          <span className="pointer-events-none translate-x-2 rounded-lg bg-navy px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white opacity-0 shadow-xl transition-all group-hover:translate-x-0 group-hover:opacity-100">
-            Call Now
-          </span>
-          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-navy text-white shadow-2xl shadow-navy/25 transition-all group-hover:-translate-y-1 group-hover:scale-105 group-hover:bg-vibrant-accent">
-            <span className="material-symbols-outlined text-[28px]">call</span>
-          </span>
-        </Link>
-      </div>
-
       <Footer />
     </div>
   );
