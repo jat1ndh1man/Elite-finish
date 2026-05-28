@@ -208,17 +208,17 @@ function CalculatorSlider({
   const progress = `${(value / max) * 100}%`;
 
   return (
-    <div className="rounded-[2rem] border border-outline/70 bg-white p-6 shadow-[0_24px_60px_-28px_rgba(20,43,88,0.18)]">
+    <div className="rounded-[2rem] border border-outline/70 bg-surface-variant p-6 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.32)]">
       <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
-          <label htmlFor={id} className="block text-2xl font-extrabold text-navy">
+          <label htmlFor={id} className="block text-2xl font-extrabold text-white">
             {label}
           </label>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-on-surface-variant">
             {helper}
           </p>
         </div>
-        <div className="inline-flex min-w-32 items-center justify-center rounded-2xl border border-outline bg-surface-variant px-5 py-4 text-xl font-bold text-navy">
+        <div className="inline-flex min-w-32 items-center justify-center rounded-2xl border border-outline bg-black px-5 py-4 text-xl font-bold text-white">
           {value} {unit}
         </div>
       </div>
@@ -262,8 +262,8 @@ function MultiplierCard({
   onChange: (nextValue: number) => void;
 }) {
   return (
-    <div className="rounded-[2rem] border border-outline/70 bg-white p-6 shadow-[0_24px_60px_-28px_rgba(20,43,88,0.18)]">
-      <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-navy">{title}</p>
+    <div className="rounded-[2rem] border border-outline/70 bg-surface-variant p-6 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.32)]">
+      <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-white">{title}</p>
       <div className="grid gap-3">
         {options.map((option) => {
           const isActive = value === option.value;
@@ -276,7 +276,7 @@ function MultiplierCard({
               className={`rounded-[1.5rem] border px-4 py-4 text-left transition-all duration-300 ${
                 isActive
                   ? "border-navy bg-navy text-white shadow-[0_16px_35px_-18px_rgba(20,43,88,0.8)]"
-                  : "border-outline bg-surface-variant text-on-surface hover:-translate-y-0.5 hover:border-vibrant-accent/60 hover:bg-white"
+                  : "border-outline bg-black text-on-surface hover:-translate-y-0.5 hover:border-vibrant-accent/60 hover:bg-surface-variant"
               }`}
             >
               <div className="flex items-start justify-between gap-4">
@@ -294,7 +294,7 @@ function MultiplierCard({
                   className={`rounded-full px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] ${
                     isActive
                       ? "bg-white/12 text-vibrant-accent"
-                      : "bg-navy/6 text-navy"
+                      : "bg-white/8 text-white"
                   }`}
                 >
                   {option.detail}
@@ -341,18 +341,18 @@ export default function PaintCalculatorPage() {
   }
 
   return (
-    <div className="bg-white text-on-surface selection:bg-vibrant-accent/20">
+    <div className="bg-black text-on-surface selection:bg-vibrant-accent/20">
       <NavBar />
 
       <main className="overflow-hidden pt-28">
-        <section className="relative border-b border-outline/60 bg-[radial-gradient(circle_at_top_left,_rgba(0,128,128,0.12),_transparent_34%),linear-gradient(180deg,#ffffff_0%,#f7fafc_100%)]">
+        <section className="relative border-b border-outline/60 bg-[radial-gradient(circle_at_top_left,_rgba(0,128,128,0.16),_transparent_34%),linear-gradient(180deg,#000000_0%,#080808_100%)]">
           <div className="mx-auto max-w-screen-2xl px-6 py-20 md:px-8 md:py-24">
             <div className="max-w-4xl">
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-vibrant-accent/12 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-navy">
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-vibrant-accent/12 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-vibrant-accent">
                 <span className="h-2 w-2 rounded-full bg-vibrant-accent" />
                 Home Paint Estimate
               </div>
-              <h1 className="max-w-5xl text-5xl font-extrabold leading-[0.98] tracking-tight text-navy md:text-7xl">
+              <h1 className="max-w-5xl text-5xl font-extrabold leading-[0.98] tracking-tight text-white md:text-7xl">
                 Paint cost calculator built around your room count, finishes, and
                 prep level.
               </h1>
@@ -380,9 +380,9 @@ export default function PaintCalculatorPage() {
               />
             ))}
 
-            <div className="rounded-[2rem] border border-outline/70 bg-white p-6 shadow-[0_24px_60px_-28px_rgba(20,43,88,0.18)]">
+            <div className="rounded-[2rem] border border-outline/70 bg-surface-variant p-6 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.32)]">
               <div className="mb-6">
-                <p className="text-2xl font-extrabold text-navy">Extras</p>
+                <p className="text-2xl font-extrabold text-white">Extras</p>
                 <p className="mt-2 text-sm leading-relaxed text-on-surface-variant">
                   Add detailed joinery and frame counts to capture extra finishing work.
                 </p>
@@ -392,9 +392,9 @@ export default function PaintCalculatorPage() {
                 {EXTRA_FIELDS.map((field) => (
                   <label
                     key={field.key}
-                    className="rounded-[1.5rem] border border-outline bg-surface-variant p-4"
+                    className="rounded-[1.5rem] border border-outline bg-black p-4"
                   >
-                    <span className="block text-sm font-bold text-navy">{field.label}</span>
+                    <span className="block text-sm font-bold text-white">{field.label}</span>
                     <span className="mt-1 block min-h-12 text-sm leading-relaxed text-on-surface-variant">
                       {field.helper}
                     </span>
@@ -409,7 +409,7 @@ export default function PaintCalculatorPage() {
                           Math.max(0, Math.min(field.max, Number(event.target.value) || 0))
                         )
                       }
-                      className="mt-4 w-full rounded-xl border border-outline bg-white px-4 py-3 text-base font-bold text-navy outline-none transition-colors focus:border-teal-accent"
+                      className="mt-4 w-full rounded-xl border border-outline bg-surface-variant px-4 py-3 text-base font-bold text-white outline-none transition-colors focus:border-teal-accent"
                     />
                     <span className="mt-2 block text-xs font-semibold uppercase tracking-[0.16em] text-on-surface-variant">
                       Up to {field.max} {field.unit}
@@ -446,9 +446,9 @@ export default function PaintCalculatorPage() {
               />
             </div>
 
-            <label className="flex items-center justify-between gap-6 rounded-[2rem] border border-outline/70 bg-white p-6 shadow-[0_24px_60px_-28px_rgba(20,43,88,0.18)]">
+            <label className="flex items-center justify-between gap-6 rounded-[2rem] border border-outline/70 bg-surface-variant p-6 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.32)]">
               <div>
-                <p className="text-xl font-extrabold text-navy">Include ceilings</p>
+                <p className="text-xl font-extrabold text-white">Include ceilings</p>
                 <p className="mt-2 max-w-xl text-sm leading-relaxed text-on-surface-variant">
                   If ceilings are included, the final estimate is multiplied by 1.2.
                 </p>
@@ -471,7 +471,7 @@ export default function PaintCalculatorPage() {
                         ceiling: event.target.checked,
                       }))
                     }
-                    className="peer h-6 w-6 cursor-pointer appearance-none rounded-md border-2 border-outline bg-white transition-all duration-200 checked:border-teal-accent checked:bg-teal-accent focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-teal-accent/20"
+                    className="peer h-6 w-6 cursor-pointer appearance-none rounded-md border-2 border-outline bg-black transition-all duration-200 checked:border-teal-accent checked:bg-teal-accent focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-teal-accent/20"
                   />
                   <span
                     className="pointer-events-none absolute text-sm font-black text-white opacity-0 transition-opacity duration-200 peer-checked:opacity-100"

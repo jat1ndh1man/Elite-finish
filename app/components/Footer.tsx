@@ -22,15 +22,15 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-navy text-white pt-32 pb-16 mt-40">
+    <footer className="mt-40 border-t border-white/8 bg-black text-white pt-32 pb-16">
       <div className="max-w-screen-2xl mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 pb-20 border-b border-white/5">
           {/* Brand */}
           <div className="space-y-8">
             <Link href="/" className="block w-fit">
-              <div className="rounded-[1.75rem] border border-white/15 bg-gradient-to-br from-white via-slate-50 to-slate-100 p-4 shadow-[0_24px_60px_-18px_rgba(0,0,0,0.45)] ring-1 ring-white/10">
+              <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-4 shadow-[0_24px_60px_-18px_rgba(0,0,0,0.55)] ring-1 ring-white/8">
                 <Image
-                  src="/Elite-finish-logo.jpeg"
+                  src={siteConfig.logoPath}
                   alt={siteConfig.businessName}
                   width={320}
                   height={246}

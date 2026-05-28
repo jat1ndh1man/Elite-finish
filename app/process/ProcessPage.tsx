@@ -80,7 +80,7 @@ export default function ProcessPage() {
   }, []);
 
   return (
-    <div className="bg-white text-on-surface selection:bg-vibrant-accent/30">
+    <div className="bg-black text-on-surface selection:bg-vibrant-accent/30">
       <NavBar />
 
       <main className="pt-40">
@@ -93,7 +93,7 @@ export default function ProcessPage() {
             </span>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end">
-            <h1 className="text-6xl md:text-[5.5rem] font-headline leading-[0.95] text-navy tracking-tighter">
+            <h1 className="text-6xl font-headline leading-[0.95] tracking-tighter text-white md:text-[5.5rem]">
               Precision at
               <br />
               Every{" "}
@@ -111,7 +111,7 @@ export default function ProcessPage() {
         </header>
 
         {/* ── Step Navigator (sticky) ── */}
-        <div className="sticky top-20 z-50 bg-white/90 backdrop-blur-lg border-b border-outline/50 mb-0">
+        <div className="sticky top-20 z-50 mb-0 border-b border-outline/50 bg-black/90 backdrop-blur-lg">
           <div className="max-w-screen-2xl mx-auto px-8">
             <div className="flex overflow-x-auto gap-0 no-scrollbar">
               {STEPS.map((step, i) => (
@@ -120,8 +120,8 @@ export default function ProcessPage() {
                   onClick={() => setActiveStep(i)}
                   className={`flex items-center gap-3 px-6 py-5 text-label text-[10px] whitespace-nowrap border-b-2 transition-all ${
                     activeStep === i
-                      ? "border-vibrant-accent text-navy font-bold"
-                      : "border-transparent text-on-surface-variant hover:text-navy"
+                      ? "border-vibrant-accent text-white font-bold"
+                      : "border-transparent text-on-surface-variant hover:text-white"
                   }`}
                 >
                   <span
@@ -167,7 +167,7 @@ export default function ProcessPage() {
                   <span className="material-symbols-outlined text-3xl text-teal-accent mb-6 block">
                     {step.icon}
                   </span>
-                  <h2 className="text-4xl md:text-5xl font-headline text-navy mb-8 leading-tight">
+                  <h2 className="mb-8 text-4xl font-headline leading-tight text-white md:text-5xl">
                     {step.title}
                   </h2>
                   <p className="text-on-surface-variant text-lg leading-relaxed font-medium mb-10">

@@ -74,7 +74,7 @@ export default function ServicesPage() {
   }, []);
 
   return (
-    <div className="selection:bg-vibrant-accent/30 bg-white text-on-surface">
+    <div className="bg-black text-on-surface selection:bg-vibrant-accent/30">
       <NavBar />
 
       {/* ── Main ── */}
@@ -90,7 +90,7 @@ export default function ServicesPage() {
                   Services &amp; Expertise
                 </span>
               </div>
-              <h1 className="text-6xl md:text-[5.5rem] font-headline leading-[0.95] mb-10 text-navy tracking-tighter">
+              <h1 className="mb-10 text-6xl font-headline leading-[0.95] tracking-tighter text-white md:text-[5.5rem]">
                 Mastering the
                 <br />
                 Art of{" "}
@@ -107,7 +107,7 @@ export default function ServicesPage() {
               <div className="flex items-center gap-8">
                 <Link
                   href="/portfolio"
-                  className="group flex items-center gap-4 text-navy font-bold hover:gap-6 transition-all"
+                  className="group flex items-center gap-4 font-bold text-white transition-all hover:gap-6"
                 >
                   <span className="w-12 h-12 rounded-full border border-outline flex items-center justify-center group-hover:bg-navy group-hover:text-white transition-all">
                     <span className="material-symbols-outlined">
@@ -139,7 +139,7 @@ export default function ServicesPage() {
                   <span className="material-symbols-outlined text-vibrant-accent">
                     verified
                   </span>
-                  <span className="text-xs font-bold text-navy">
+                  <span className="text-xs font-bold text-white">
                     MPA Accredited
                   </span>
                 </div>
@@ -169,8 +169,8 @@ export default function ServicesPage() {
                       href={href}
                       className={`group flex items-center justify-between p-3 rounded-xl hover:bg-surface-variant transition-all text-base ${
                         active
-                          ? "text-navy font-bold"
-                          : "text-on-surface-variant font-medium hover:text-navy"
+                          ? "text-white font-bold"
+                          : "text-on-surface-variant font-medium hover:text-white"
                       }`}
                     >
                       <div className="flex items-center gap-4">

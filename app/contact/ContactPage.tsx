@@ -64,7 +64,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="bg-white text-on-surface selection:bg-vibrant-accent/20">
+    <div className="bg-black text-on-surface selection:bg-vibrant-accent/20">
       <NavBar />
 
       <main className="pt-28">
@@ -75,7 +75,7 @@ export default function ContactPage() {
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-teal-accent" />
                 Contact & Consultation
               </div>
-              <h1 className="max-w-xl text-5xl font-extrabold leading-[1.05] tracking-tight text-navy md:text-6xl">
+              <h1 className="max-w-xl text-5xl font-extrabold leading-[1.05] tracking-tight text-white md:text-6xl">
                 Elevate your <span className="text-teal-accent">vision</span> to
                 reality.
               </h1>
@@ -90,7 +90,7 @@ export default function ContactPage() {
                 <Link
                   key={method.label}
                   href={method.href}
-                  className="group flex items-center gap-5 rounded-2xl border border-transparent p-4 transition-all hover:border-outline hover:bg-surface-variant hover:shadow-xl hover:shadow-navy/5"
+                  className="group flex items-center gap-5 rounded-2xl border border-outline/50 bg-black p-4 transition-all hover:border-outline hover:bg-[#0a0a0a] hover:shadow-xl hover:shadow-navy/5"
                 >
                   <div
                     className={`flex h-12 w-12 items-center justify-center rounded-xl text-white transition-transform group-hover:scale-110 ${method.accent}`}
@@ -101,29 +101,29 @@ export default function ContactPage() {
                     <p className="text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant">
                       {method.label}
                     </p>
-                    <p className="text-lg font-bold text-navy">{method.value}</p>
+                    <p className="text-lg font-bold text-white">{method.value}</p>
                   </div>
                 </Link>
               ))}
             </div>
 
-            <div className="rounded-3xl border border-outline bg-white p-6 shadow-[0_20px_50px_-12px_rgba(20,43,88,0.08)]">
-              <h2 className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-navy">
+            <div className="rounded-3xl border border-outline bg-black p-6 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.3)]">
+              <h2 className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-white">
                 <span className="material-symbols-outlined text-sm">schedule</span>
                 Studio Hours
               </h2>
               <div className="space-y-3 text-sm">
                 <div className="flex items-center justify-between">
                   <span className="font-medium text-on-surface-variant">Weekdays</span>
-                  <span className="font-bold text-navy">08:00 - 18:00</span>
+                  <span className="font-bold text-white">08:00 - 18:00</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="font-medium text-on-surface-variant">Saturday</span>
-                  <span className="font-bold text-navy">09:00 - 14:00</span>
+                  <span className="font-bold text-white">09:00 - 14:00</span>
                 </div>
                 <div className="flex items-center justify-between border-t border-outline pt-2">
                   <span className="text-xs italic text-on-surface-variant">Sunday</span>
-                  <span className="rounded bg-surface-variant px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant">
+                  <span className="rounded bg-[#111111] px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant">
                     By Appointment
                   </span>
                 </div>
@@ -134,10 +134,10 @@ export default function ContactPage() {
           <div className="lg:col-span-7">
             <div
               id="contact-form"
-              className="rounded-[2rem] border border-outline bg-white p-8 shadow-[0_20px_50px_-12px_rgba(20,43,88,0.08)] md:p-12"
+              className="rounded-[2rem] border border-outline bg-black p-8 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.3)] md:p-12"
             >
               <div className="mb-10">
-                <h2 className="mb-2 text-3xl font-extrabold text-navy">
+                <h2 className="mb-2 text-3xl font-extrabold text-white">
                   Request a Project Quote
                 </h2>
                 <p className="text-sm text-on-surface-variant">
@@ -152,7 +152,7 @@ export default function ContactPage() {
                   <div className="space-y-2">
                     <label
                       htmlFor="full-name"
-                      className="block text-xs font-bold uppercase tracking-[0.2em] text-navy"
+                      className="block text-xs font-bold uppercase tracking-[0.2em] text-white"
                     >
                       Full Name
                     </label>
@@ -162,14 +162,14 @@ export default function ContactPage() {
                       type="text"
                       required
                       placeholder="Julian Vane"
-                      className="w-full border-0 border-b-2 border-outline bg-surface-variant px-0 py-3 text-on-surface placeholder:text-on-surface-variant/50 focus:border-teal-accent focus:outline-none"
+                      className="w-full border-0 border-b-2 border-outline bg-black px-0 py-3 text-on-surface placeholder:text-on-surface-variant/70 focus:border-teal-accent focus:outline-none"
                     />
                   </div>
 
                   <div className="space-y-2">
                     <label
                       htmlFor="email"
-                      className="block text-xs font-bold uppercase tracking-[0.2em] text-navy"
+                      className="block text-xs font-bold uppercase tracking-[0.2em] text-white"
                     >
                       Email Address
                     </label>
@@ -179,7 +179,7 @@ export default function ContactPage() {
                       type="email"
                       required
                       placeholder="you@example.com"
-                      className="w-full border-0 border-b-2 border-outline bg-surface-variant px-0 py-3 text-on-surface placeholder:text-on-surface-variant/50 focus:border-teal-accent focus:outline-none"
+                      className="w-full border-0 border-b-2 border-outline bg-black px-0 py-3 text-on-surface placeholder:text-on-surface-variant/70 focus:border-teal-accent focus:outline-none"
                     />
                   </div>
                 </div>
@@ -188,7 +188,7 @@ export default function ContactPage() {
                   <div className="space-y-2">
                     <label
                       htmlFor="phone"
-                      className="block text-xs font-bold uppercase tracking-[0.2em] text-navy"
+                      className="block text-xs font-bold uppercase tracking-[0.2em] text-white"
                     >
                       Phone Number
                     </label>
@@ -198,21 +198,21 @@ export default function ContactPage() {
                       type="tel"
                       required
                       placeholder="0401 550 823"
-                      className="w-full border-0 border-b-2 border-outline bg-surface-variant px-0 py-3 text-on-surface placeholder:text-on-surface-variant/50 focus:border-teal-accent focus:outline-none"
+                      className="w-full border-0 border-b-2 border-outline bg-black px-0 py-3 text-on-surface placeholder:text-on-surface-variant/70 focus:border-teal-accent focus:outline-none"
                     />
                   </div>
 
                   <div className="space-y-2">
                     <label
                       htmlFor="project-type"
-                      className="block text-xs font-bold uppercase tracking-[0.2em] text-navy"
+                      className="block text-xs font-bold uppercase tracking-[0.2em] text-white"
                     >
                       Project Type
                     </label>
                     <select
                       id="project-type"
                       name="projectType"
-                      className="w-full cursor-pointer border-0 border-b-2 border-outline bg-surface-variant px-0 py-3 text-on-surface focus:border-teal-accent focus:outline-none"
+                      className="w-full cursor-pointer border-0 border-b-2 border-outline bg-black px-0 py-3 text-on-surface focus:border-teal-accent focus:outline-none"
                       defaultValue="Residential Painting"
                     >
                       <option>Residential Painting</option>
@@ -227,7 +227,7 @@ export default function ContactPage() {
                   <div className="space-y-2">
                     <label
                       htmlFor="project-location"
-                      className="block text-xs font-bold uppercase tracking-[0.2em] text-navy"
+                      className="block text-xs font-bold uppercase tracking-[0.2em] text-white"
                     >
                       Project Location
                     </label>
@@ -236,21 +236,21 @@ export default function ContactPage() {
                       name="projectLocation"
                       type="text"
                       placeholder="e.g. Highton, VIC"
-                      className="w-full border-0 border-b-2 border-outline bg-surface-variant px-0 py-3 text-on-surface placeholder:text-on-surface-variant/50 focus:border-teal-accent focus:outline-none"
+                      className="w-full border-0 border-b-2 border-outline bg-black px-0 py-3 text-on-surface placeholder:text-on-surface-variant/70 focus:border-teal-accent focus:outline-none"
                     />
                   </div>
 
                   <div className="space-y-2">
                     <label
                       htmlFor="timeline"
-                      className="block text-xs font-bold uppercase tracking-[0.2em] text-navy"
+                      className="block text-xs font-bold uppercase tracking-[0.2em] text-white"
                     >
                       Timeline
                     </label>
                     <select
                       id="timeline"
                       name="timeline"
-                      className="w-full cursor-pointer border-0 border-b-2 border-outline bg-surface-variant px-0 py-3 text-on-surface focus:border-teal-accent focus:outline-none"
+                      className="w-full cursor-pointer border-0 border-b-2 border-outline bg-black px-0 py-3 text-on-surface focus:border-teal-accent focus:outline-none"
                       defaultValue="Immediate"
                     >
                       <option>Immediate</option>
@@ -263,7 +263,7 @@ export default function ContactPage() {
                 <div className="space-y-2">
                   <label
                     htmlFor="project-description"
-                    className="block text-xs font-bold uppercase tracking-[0.2em] text-navy"
+                    className="block text-xs font-bold uppercase tracking-[0.2em] text-white"
                   >
                     Project Description
                   </label>
@@ -273,7 +273,7 @@ export default function ContactPage() {
                     rows={4}
                     required
                     placeholder="Tell us about your project vision..."
-                    className="w-full resize-none border-0 border-b-2 border-outline bg-surface-variant px-0 py-3 text-on-surface placeholder:text-on-surface-variant/50 focus:border-teal-accent focus:outline-none"
+                    className="w-full resize-none border-0 border-b-2 border-outline bg-black px-0 py-3 text-on-surface placeholder:text-on-surface-variant/70 focus:border-teal-accent focus:outline-none"
                   />
                 </div>
 
@@ -313,14 +313,14 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="border-y border-outline bg-surface-variant py-24">
+        <section className="border-y border-outline bg-black py-24">
           <div className="mx-auto max-w-screen-2xl px-6 lg:px-8">
             <div className="mb-12 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
               <div className="max-w-2xl">
                 <span className="mb-3 block text-xs font-bold uppercase tracking-[0.2em] text-teal-accent">
                   Service Regions
                 </span>
-                <h2 className="mb-4 text-4xl font-extrabold text-navy">
+                <h2 className="mb-4 text-4xl font-extrabold text-white">
                   Elite Craft Across Greater Geelong
                 </h2>
                 <p className="leading-relaxed text-on-surface-variant">
@@ -334,7 +334,7 @@ export default function ContactPage() {
                 {SERVICE_REGIONS.map((region) => (
                   <span
                     key={region}
-                    className="rounded-full border border-outline bg-white px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-navy"
+                    className="rounded-full border border-outline bg-white/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white"
                   >
                     {region}
                   </span>
@@ -342,7 +342,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-[2rem] border border-outline bg-white shadow-sm">
+            <div className="relative overflow-hidden rounded-[2rem] border border-outline bg-black shadow-sm">
               <div className="relative h-[420px] w-full">
                 <iframe
                   title="Elite Finish studio location map"
@@ -352,11 +352,11 @@ export default function ContactPage() {
                   referrerPolicy="no-referrer-when-downgrade"
                 />
                 <div className="pointer-events-none absolute inset-x-6 bottom-6 flex justify-start">
-                  <div className="max-w-sm rounded-2xl border border-outline bg-white/95 p-5 shadow-xl backdrop-blur">
+                  <div className="max-w-sm rounded-2xl border border-outline bg-black/85 p-5 shadow-xl backdrop-blur">
                     <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-accent">
                       Bell Post Hill Studio
                     </p>
-                    <p className="mt-2 text-lg font-extrabold text-navy">
+                    <p className="mt-2 text-lg font-extrabold text-white">
                       {siteConfig.addressLine1}
                     </p>
                     <p className="text-sm text-on-surface-variant">
@@ -367,7 +367,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-outline bg-white px-6 py-5">
+            <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-outline bg-black px-6 py-5">
               <p className="max-w-2xl text-sm font-medium text-on-surface-variant">
                 Prefer a direct conversation? Call us directly or use the form to
                 arrange a site visit at your home or business.

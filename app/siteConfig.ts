@@ -2,7 +2,7 @@ export const siteConfig = {
   businessName: "Elite Finish Painting Service",
   shortName: "Elite Finish",
   siteUrl: "https://elitefinishpaintingservices.com.au",
-  logoPath: "/Elite-finish-logo-transparent.png",
+  logoPath: "/elitelogonew.jpeg",
   phoneDisplay: "0401550823",
   phoneHref: "tel:0401550823",
   whatsappHref:

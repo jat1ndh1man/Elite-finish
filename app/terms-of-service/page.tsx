@@ -50,7 +50,7 @@ const sections = [
 
 export default function TermsOfServicePage() {
   return (
-    <div className="bg-white text-on-surface selection:bg-vibrant-accent/20">
+    <div className="bg-black text-on-surface selection:bg-vibrant-accent/20">
       <NavBar />
 
       <main className="mx-auto max-w-4xl px-6 pb-24 pt-40 lg:px-8">
@@ -58,7 +58,7 @@ export default function TermsOfServicePage() {
           <span className="mb-4 block text-xs font-bold uppercase tracking-[0.25em] text-teal-accent">
             Legal
           </span>
-          <h1 className="mb-6 text-5xl font-headline leading-tight text-navy md:text-6xl">
+          <h1 className="mb-6 text-5xl font-headline leading-tight text-white md:text-6xl">
             Terms of Service
           </h1>
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-on-surface-variant">
@@ -74,7 +74,7 @@ export default function TermsOfServicePage() {
 
           {sections.map((section) => (
             <section key={section.title} className="space-y-4">
-              <h2 className="text-2xl font-headline text-navy">{section.title}</h2>
+              <h2 className="text-2xl font-headline text-white">{section.title}</h2>
               {section.body.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -82,7 +82,7 @@ export default function TermsOfServicePage() {
           ))}
 
           <section className="space-y-4">
-            <h2 className="text-2xl font-headline text-navy">Contact</h2>
+            <h2 className="text-2xl font-headline text-white">Contact</h2>
             <p>
               Questions about these terms can be sent to{" "}
               <Link href={siteConfig.emailHref} className="font-bold text-teal-accent">

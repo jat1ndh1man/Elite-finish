@@ -43,14 +43,14 @@ const PROJECT_GALLERY = [
 
 export default function HomePage() {
   return (
-    <div className="bg-white text-on-surface">
+    <div className="bg-black text-on-surface">
       <NavBar />
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20 bg-white">
+        <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-black pt-20">
           <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/40 to-transparent z-10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/65 to-transparent z-10" />
             <Image
               src="/8.jpeg"
               alt="Elite Finish painting project detail"
@@ -61,11 +61,11 @@ export default function HomePage() {
           </div>
           <div className="relative z-20 max-w-screen-2xl mx-auto px-6 md:px-12 w-full">
             <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-2 bg-navy/5 text-navy border border-navy/10 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-8">
+              <span className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-white">
                 <span className="w-2 h-2 rounded-full bg-vibrant-accent animate-pulse" />
                 Excellence Since 2024
               </span>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-navy leading-[1.05] mb-8 tracking-tight">
+              <h1 className="mb-8 text-5xl font-extrabold leading-[1.05] tracking-tight text-white md:text-7xl lg:text-8xl">
                 Masterstroke <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-accent to-vibrant-accent">
                   Quality.
@@ -84,7 +84,7 @@ export default function HomePage() {
                 </Link>
                 <Link
                   href="/portfolio"
-                  className="bg-white border border-outline text-navy px-10 py-5 rounded-xl font-bold text-base hover:bg-surface-variant transition-all transform hover:-translate-y-1"
+                  className="rounded-xl border border-white/12 bg-white/5 px-10 py-5 text-base font-bold text-white transition-all transform hover:-translate-y-1 hover:bg-surface-variant"
                 >
                   View Portfolio
                 </Link>
@@ -128,11 +128,11 @@ export default function HomePage() {
         </section> */}
 
         {/* Services Section */}
-        <section className="py-32 bg-white">
+        <section className="bg-black py-32">
           <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
               <div className="max-w-2xl">
-                <h2 className="text-4xl md:text-6xl font-extrabold text-navy mb-6 tracking-tight">
+                <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-white md:text-6xl">
                   Curated Surface{" "}
                   <span className="text-teal-accent italic font-normal">Solutions</span>
                 </h2>
@@ -143,7 +143,7 @@ export default function HomePage() {
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-1 bg-vibrant-accent rounded-full" />
-                <span className="font-bold uppercase text-xs tracking-widest text-navy">
+                <span className="text-xs font-bold uppercase tracking-widest text-white">
                   Service Index 2024
                 </span>
               </div>
@@ -236,13 +236,13 @@ export default function HomePage() {
         </section>
 
         {/* Visual Gallery */}
-        <section className="bg-[#f5f7fb] py-32">
+        <section className="bg-[#050505] py-32">
           <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
             <div className="mb-20 max-w-3xl">
               <span className="mb-5 block text-xs font-bold uppercase tracking-[0.35em] text-teal-accent">
                 Visual Direction
               </span>
-              <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-navy md:text-6xl">
+              <h2 className="mb-6 text-4xl font-extrabold tracking-tight text-white md:text-6xl">
                 More spaces, more finish detail, more proof in the visuals.
               </h2>
               <p className="text-lg font-medium leading-relaxed text-on-surface/65">
@@ -256,7 +256,7 @@ export default function HomePage() {
               {PROJECT_GALLERY.map(({ src, alt, eyebrow, title, description }) => (
                 <article
                   key={src}
-                  className="group overflow-hidden rounded-[2rem] border border-outline/60 bg-white shadow-[0_24px_60px_-24px_rgba(20,43,88,0.22)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_32px_70px_-24px_rgba(20,43,88,0.28)]"
+                  className="group overflow-hidden rounded-[2rem] border border-outline/60 bg-surface-variant shadow-[0_24px_60px_-24px_rgba(0,0,0,0.35)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_32px_70px_-24px_rgba(0,0,0,0.45)]"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
@@ -272,7 +272,7 @@ export default function HomePage() {
                     <span className="block text-[10px] font-bold uppercase tracking-[0.25em] text-vibrant-accent">
                       {eyebrow}
                     </span>
-                    <h3 className="max-w-xl text-2xl font-extrabold leading-tight text-navy">
+                    <h3 className="max-w-xl text-2xl font-extrabold leading-tight text-white">
                       {title}
                     </h3>
                     <p className="max-w-2xl text-base font-medium leading-relaxed text-on-surface/65">
@@ -295,7 +295,7 @@ export default function HomePage() {
                   2024
                 </div>
                 <div className="relative z-10 pt-10">
-                  <h2 className="text-5xl md:text-6xl font-extrabold text-navy mb-8 leading-tight tracking-tight">
+                  <h2 className="mb-8 text-5xl font-extrabold leading-tight tracking-tight text-white md:text-6xl">
                     Formed by <br />
                     <span className="text-vibrant-accent">Expertise.</span>
                   </h2>
@@ -303,7 +303,7 @@ export default function HomePage() {
                     <div className="flex gap-8 items-start">
                       <div className="text-5xl font-extrabold text-teal-accent">10+</div>
                       <div>
-                        <h4 className="font-bold text-xl text-navy mb-2">
+                        <h4 className="mb-2 text-xl font-bold text-white">
                           Years Combined Experience
                         </h4>
                         <p className="text-on-surface/60 font-medium leading-relaxed">
@@ -316,7 +316,7 @@ export default function HomePage() {
                     <div className="flex gap-8 items-start">
                       <div className="text-5xl font-extrabold text-teal-accent">Local</div>
                       <div>
-                        <h4 className="font-bold text-xl text-navy mb-2">Geelong Focus</h4>
+                        <h4 className="mb-2 text-xl font-bold text-white">Geelong Focus</h4>
                         <p className="text-on-surface/60 font-medium leading-relaxed">
                           From family homes to commercial spaces, our work is focused on Highton,
                           Grovedale, Geelong City, and the wider Greater Geelong region.
@@ -339,7 +339,7 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="absolute bottom-8 right-8 z-20 glass-card p-8 rounded-xl border border-white/20 shadow-2xl max-w-xs">
-                  <p className="font-medium text-navy text-xl italic mb-4 leading-relaxed">
+                  <p className="mb-4 text-xl font-medium italic leading-relaxed text-white">
                     &ldquo;Quality starts with the people on site.&rdquo;
                   </p>
                   <p className="font-bold text-xs uppercase tracking-widest text-vibrant-accent">
@@ -352,13 +352,13 @@ export default function HomePage() {
         </section>
 
         {/* Testimonials */}
-        <section className="py-32 bg-white">
+        <section className="bg-black py-32">
           <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
             <div className="text-center mb-24">
               <span className="font-bold text-xs uppercase tracking-[0.4em] text-vibrant-accent mb-4 block">
                 Client Voices
               </span>
-              <h2 className="text-4xl md:text-6xl font-extrabold text-navy tracking-tight">
+              <h2 className="text-4xl font-extrabold tracking-tight text-white md:text-6xl">
                 The Elite <span className="text-teal-accent">Experience</span>
               </h2>
             </div>
@@ -417,12 +417,12 @@ export default function HomePage() {
                         </span>
                       ))}
                     </div>
-                    <p className="text-navy/80 leading-relaxed text-lg mb-8 font-medium italic">
+                    <p className="mb-8 text-lg font-medium italic leading-relaxed text-white/80">
                       &ldquo;{quote}&rdquo;
                     </p>
                   </div>
                   <div>
-                    <p className="font-extrabold text-navy text-lg">{name}</p>
+                    <p className="text-lg font-extrabold text-white">{name}</p>
                     <p className="font-bold text-[10px] uppercase tracking-widest text-on-surface/50">
                       {role}
                     </p>

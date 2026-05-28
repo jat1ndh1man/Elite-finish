@@ -27,6 +27,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Elite Finish - Masterful Surfaces",
   description: "Premium painting and surface finishing services in Geelong.",
+  icons: {
+    icon: "/elitelogonew.jpeg",
+    shortcut: "/elitelogonew.jpeg",
+    apple: "/elitelogonew.jpeg",
+  },
 };
 
 export default function RootLayout({

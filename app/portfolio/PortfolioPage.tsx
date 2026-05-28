@@ -62,7 +62,7 @@ export default function PortfolioPage() {
       : PROJECTS.filter((p) => p.category === active);
 
   return (
-    <div className="bg-white text-on-surface selection:bg-vibrant-accent/30">
+    <div className="bg-black text-on-surface selection:bg-vibrant-accent/30">
       <NavBar />
 
       <main className="pt-40 pb-24">
@@ -73,7 +73,7 @@ export default function PortfolioPage() {
               <span className="text-teal-accent font-bold uppercase tracking-[0.3em] text-[11px] mb-6 block">
                 Curated Works
               </span>
-              <h1 className="text-6xl md:text-8xl font-headline text-navy leading-[1.05] tracking-tight">
+              <h1 className="text-6xl font-headline leading-[1.05] tracking-tight text-white md:text-8xl">
                 Mastery in Every <br />
                 <span className="italic font-normal text-vibrant-accent">
                   Stroke &amp; Surface.
@@ -129,7 +129,7 @@ export default function PortfolioPage() {
                 </div>
                 <div className="mt-8">
                   <div className="flex justify-between items-center mb-3">
-                    <h3 className="text-2xl font-headline text-navy">
+                    <h3 className="text-2xl font-headline text-white">
                       {project.title}
                     </h3>
                     <span className="text-[10px] font-bold uppercase tracking-widest text-teal-accent px-3 py-1 bg-teal-accent/5 rounded-full">
@@ -147,9 +147,9 @@ export default function PortfolioPage() {
         </section>
 
         {/* CTA */}
-        <section className="mt-40 bg-surface-variant py-32">
+        <section className="mt-40 bg-black py-32">
           <div className="max-w-screen-2xl mx-auto px-8 text-center">
-            <h2 className="text-5xl md:text-6xl font-headline mb-12 max-w-3xl mx-auto leading-tight text-navy">
+            <h2 className="mx-auto mb-12 max-w-3xl text-5xl font-headline leading-tight text-white md:text-6xl">
               Ready to commission your next{" "}
               <span className="italic font-normal text-vibrant-accent">
                 masterpiece?

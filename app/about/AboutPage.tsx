@@ -51,7 +51,7 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <div className="bg-white text-on-surface selection:bg-vibrant-accent/30">
+    <div className="bg-black text-on-surface selection:bg-vibrant-accent/30">
       <NavBar />
 
       <main className="pt-40">
@@ -65,7 +65,7 @@ export default function AboutPage() {
                   Our Story
                 </span>
               </div>
-              <h1 className="text-6xl md:text-[5.5rem] font-headline leading-[0.95] mb-10 text-navy tracking-tighter">
+              <h1 className="mb-10 text-6xl font-headline leading-[0.95] tracking-tighter text-white md:text-[5.5rem]">
                 Founded in 2024
                 <br />
                 by{" "}
@@ -99,7 +99,7 @@ export default function AboutPage() {
                 />
               </div>
               <div className="absolute -bottom-10 -left-10 glass-card p-6 rounded-2xl hidden md:block">
-                <p className="text-sm font-bold text-navy italic mb-1">
+                <p className="mb-1 text-sm font-bold italic text-white">
                   &ldquo;Quality starts with experienced people working together.&rdquo;
                 </p>
                 <p className="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">
@@ -134,7 +134,7 @@ export default function AboutPage() {
             <span className="text-teal-accent text-label text-[10px] mb-4 block font-bold tracking-[0.2em]">
               What We Stand For
             </span>
-            <h2 className="text-5xl md:text-6xl font-headline text-navy mb-6">
+            <h2 className="mb-6 text-5xl font-headline text-white md:text-6xl">
               Our Core Values
             </h2>
             <p className="max-w-2xl mx-auto text-on-surface-variant text-lg font-medium leading-relaxed">
@@ -146,12 +146,12 @@ export default function AboutPage() {
             {VALUES.map(({ icon, title, desc }) => (
               <div
                 key={title}
-                className="glass-card p-10 rounded-3xl hover:bg-white transition-colors duration-300 group"
+                className="glass-card group rounded-3xl bg-black p-10 transition-colors duration-300 hover:bg-[#0a0a0a]"
               >
                 <span className="material-symbols-outlined text-4xl text-vibrant-accent mb-6 block">
                   {icon}
                 </span>
-                <h3 className="text-2xl font-headline text-navy mb-4">
+                <h3 className="mb-4 text-2xl font-headline text-white">
                   {title}
                 </h3>
                 <p className="text-on-surface-variant leading-relaxed font-medium">
@@ -163,14 +163,14 @@ export default function AboutPage() {
         </section>
 
         {/* ── Story ── */}
-        <section className="bg-surface-variant py-32 scroll-reveal">
+        <section className="bg-black py-32 scroll-reveal">
           <div className="max-w-screen-2xl mx-auto px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
               <div>
                 <span className="text-teal-accent text-label text-[10px] mb-4 block font-bold tracking-[0.2em]">
                   Our Formation
                 </span>
-                <h2 className="text-5xl font-headline text-navy mb-8 leading-tight">
+                <h2 className="mb-8 text-5xl font-headline leading-tight text-white">
                   Built by an
                   <br />
                   Experienced Team.
@@ -189,7 +189,7 @@ export default function AboutPage() {
                 </p>
                 <Link
                   href="/portfolio"
-                  className="text-navy font-bold text-xs tracking-widest uppercase flex items-center gap-4 group w-fit"
+                  className="group flex w-fit items-center gap-4 text-xs font-bold uppercase tracking-widest text-white"
                 >
                   <span className="w-12 h-12 rounded-full border border-navy/20 flex items-center justify-center group-hover:bg-navy group-hover:text-white transition-all">
                     <span className="material-symbols-outlined text-[18px]">
@@ -221,14 +221,14 @@ export default function AboutPage() {
             <span className="text-teal-accent text-label text-[10px] mb-4 block font-bold tracking-[0.2em]">
               Company Directors
             </span>
-            <h2 className="text-5xl md:text-6xl font-headline text-navy">
+            <h2 className="text-5xl font-headline text-white md:text-6xl">
               Our Team
             </h2>
           </div>
           <div className="mx-auto max-w-5xl">
             <div className="relative aspect-[1178/912] overflow-hidden rounded-3xl border border-outline/30 shadow-2xl">
               <Image
-                src="/team.png"
+                src="/teamnew.jpeg"
                 alt="Elite Finish team"
                 fill
                 className="object-cover"
@@ -239,12 +239,12 @@ export default function AboutPage() {
               {["Parampreet Singh", "Hardeep Kaler"].map((name) => (
                 <div
                   key={name}
-                  className="rounded-2xl border border-outline/30 bg-white p-8 text-center shadow-sm"
+                  className="rounded-2xl border border-outline/30 bg-black p-8 text-center shadow-sm"
                 >
                   <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-vibrant-accent">
                     Director
                   </p>
-                  <h3 className="text-3xl font-headline text-navy">{name}</h3>
+                  <h3 className="text-3xl font-headline text-white">{name}</h3>
                 </div>
               ))}
             </div>
